@@ -1,7 +1,6 @@
 package com.business.mail.service;
 
-
-import com.business.mail.model.Email;
+import com.business.mail.model.EmailResponse;
 import com.business.mail.repository.EmailRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,22 +17,22 @@ public class EmailServiceImpl implements EmailService {
     }
 
     @Override
-    public Email sendSimpleMessage(String to, String subject, String text) {
+    public EmailResponse sendSimpleMessage(String to, String subject, String text) {
         return emailRepository.sendSimpleMessage(to, subject, text);
     }
 
     @Override
-    public Email sendMessageWithAttachment(String to, String subject, String text, String pathToAttachment) {
-        return emailRepository.sendMessageWithAttachment(to, subject, text, pathToAttachment);
+    public EmailResponse sendMessageWithAttachment(String to, String subject, String pathToAttachment) {
+        return emailRepository.sendMessageWithAttachment(to, subject, pathToAttachment);
     }
 
     @Override
-    public Email sendMessageWithHtmlText(String to, String subject) {
-        return emailRepository.sendMessageWithHtmlText(to,subject);
+    public EmailResponse sendMessageWithHtmlText(String to, String subject, String htmlString) {
+        return emailRepository.sendMessageWithHtmlText(to, subject, htmlString);
     }
 
     @Override
-    public Email sendMailWithHtmlInlineImage(String to, String subject) {
-        return emailRepository.sendMailWithHtmlInlineImage(to, subject);
+    public EmailResponse sendMailWithHtmlInlineImage(String to, String subject, String urlOfAttachment) {
+        return emailRepository.sendMailWithHtmlInlineImage(to, subject, urlOfAttachment);
     }
 }

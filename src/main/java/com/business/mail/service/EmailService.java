@@ -1,14 +1,14 @@
 package com.business.mail.service;
 
-import com.business.mail.model.Email;
+import com.business.mail.model.EmailResponse;
 
 public interface EmailService {
 
-    Email sendSimpleMessage(String to, String subject, String text);
+    EmailResponse sendSimpleMessage(String to, String subject, String text);
 
-    Email sendMessageWithAttachment(String to, String subject, String text, String pathToAttachment);
+    EmailResponse sendMessageWithAttachment(String to, String subject, String pathToAttachment);
 
-    Email sendMessageWithHtmlText(String to, String subject);
+    EmailResponse sendMessageWithHtmlText(String to, String subject, String htmlString);
 
-    Email sendMailWithHtmlInlineImage(String to, String subject);
+    EmailResponse sendMailWithHtmlInlineImage(String to, String subject, String urlOfAttachment);
 }

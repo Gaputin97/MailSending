@@ -1,13 +1,17 @@
 package com.business.mail.controller;
 
-import com.business.mail.model.Email;
+import com.business.mail.model.EmailRequest;
+import com.business.mail.model.EmailResponse;
 import com.business.mail.service.EmailService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/send/email", produces = "application/json")
+@RequestMapping(value = "/send/email", produces = "application/json", consumes = "application/json")
 public class EmailSenderController {
 
     private final EmailService emailService;
@@ -17,25 +21,31 @@ public class EmailSenderController {
         this.emailService = emailService;
     }
 
-    @RequestMapping(value = "/simple")
-    public Email sendEmail(){
-        return emailService.sendSimpleMessage("gaputin@hotmail.com", "Test sending", "Hello world");
+    @ApiOperation(value = "Send simple mail")
+    @PostMapping(value = "/simple")
+    public EmailResponse sendEmail(@RequestBody EmailRequest emailRequest){
+        return emailService.sendSimpleMessage(emailRequest.getRecipientEmail(),
+                emailRequest.getMessageSubject(), emailRequest.getMessageBody());
     }
 
-    @RequestMapping(value = "/attach")
-    public Email sendEmailWithAttachments() {
-        return emailService.sendMessageWithAttachment("gaputin@hotmail.com", "Test sending with attachment",
-                "Hello world with attachment", "src/main/resources/img/image1.png");
+    @ApiOperation(value = "Send mail with attachment")
+    @PostMapping(value = "/attachment")
+    public EmailResponse sendEmailWithAttachments(@RequestBody EmailRequest emailRequest) {
+        return emailService.sendMessageWithAttachment(emailRequest.getRecipientEmail(),
+                emailRequest.getMessageSubject(), emailRequest.getMessageBody());
     }
 
-    @RequestMapping(value = "/html")
-    public Email sendEmailWithHtmlBody() {
-        return emailService.sendMessageWithHtmlText("gaputin@hotmail.com", "Test sending with HTML text");
+    @ApiOperation(value = "Send mail with HTML body")
+    @PostMapping(value = "/html")
+    public EmailResponse sendEmailWithHtmlBody(@RequestBody EmailRequest emailRequest) {
+        return emailService.sendMessageWithHtmlText(emailRequest.getRecipientEmail(),
+                emailRequest.getMessageSubject(), emailRequest.getMessageBody());
     }
 
-    @RequestMapping(value = "/image")
-    public Email sendEmailWithInlineImg() {
-        return emailService.sendMailWithHtmlInlineImage("gaputin@hotmail.com", "Test sending with " +
-                "inline image");
+    @ApiOperation(value = "Send mail with inline image")
+    @PostMapping(value = "/image")
+    public EmailResponse sendEmailWithInlineImg(@RequestBody EmailRequest emailRequest) {
+        return emailService.sendMailWithHtmlInlineImage(emailRequest.getRecipientEmail(),
+                emailRequest.getMessageSubject(), emailRequest.getMessageBody());
     }
 }

@@ -1,6 +1,8 @@
 package com.business.mail.repository;
 
-import com.business.mail.model.Email;
+import com.business.mail.model.EmailResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.SimpleMailMessage;
@@ -17,9 +19,20 @@ import javax.mail.internet.MimeMultipart;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 @Repository
 public class EmailRepositoryImpl implements EmailRepository {
+
+    private Logger logger = LoggerFactory.getLogger(EmailRepositoryImpl.class);
+
+    private String currentDate;
+
+    private final String dateFormat = "dd MMM yyyy HH:mm:ss";
+
+    private final SimpleDateFormat simpleDateFormat = new SimpleDateFormat(dateFormat, Locale.ENGLISH);
 
     private final JavaMailSender javaMailSender;
 
@@ -29,70 +42,66 @@ public class EmailRepositoryImpl implements EmailRepository {
     }
 
     @Override
-    public Email sendSimpleMessage(String to, String subject, String text) {
+    public EmailResponse sendSimpleMessage(String to, String subject, String text) {
         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
         simpleMailMessage.setTo(to);
         simpleMailMessage.setSubject(subject);
         simpleMailMessage.setText(text);
 
-        javaMailSender.send(simpleMailMessage);
+        currentDate = simpleDateFormat.format(new Date());
 
-        return new Email(to, subject, text, true);
+        javaMailSender.send(simpleMailMessage);
+        logger.error("Logger: Simple mail sending works NOT RIGHT");
+
+        return new EmailResponse(to, subject, text, currentDate, true);
     }
 
     @Override
-    public Email sendMessageWithAttachment(String to, String subject, String text, String pathToAttachment) {
-        MimeMessage message = null;
-        MimeMessageHelper helper;
+    public EmailResponse sendMessageWithAttachment(String to, String subject, String pathToAttachment) {
         try {
-            message = javaMailSender.createMimeMessage();
-            helper = new MimeMessageHelper(message, true);
+            MimeMessage message = javaMailSender.createMimeMessage();
+            MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
             helper.setTo(to);
             helper.setSubject(subject);
-            helper.setText(text);
-
             FileSystemResource file = new FileSystemResource(new File(pathToAttachment));
             helper.addAttachment("Default image", file);
 
+            currentDate = simpleDateFormat.format(new Date());
+
             javaMailSender.send(message);
         } catch (MessagingException e) {
-            e.printStackTrace();
-            return new Email(to, subject, message, false);
+            logger.error("Error sending message with attachment " + e);
         }
-        return new Email(to, subject, message, true);
+        return new EmailResponse(to, subject, pathToAttachment, currentDate, true );
     }
 
     @Override
-    public Email sendMessageWithHtmlText(String to, String subject) {
-        final String htmlBody = "<h1>Hey man</h1>\n" + "<h2>Hey man</h2>";
-        MimeMessage message = null;
+    public EmailResponse sendMessageWithHtmlText(String to, String subject, String htmlString) {
         try {
-            message = javaMailSender.createMimeMessage();
+            MimeMessage message = javaMailSender.createMimeMessage();
             MimeMessageHelper messageHelper = new MimeMessageHelper(message, true);
 
             messageHelper.setTo(to);
             messageHelper.setSubject(subject);
 
-            message.setContent(htmlBody, "text/html;  charset=UTF-8");
+            message.setContent(htmlString, "text/html;  charset=UTF-8");
+
+            currentDate = simpleDateFormat.format(new Date());
 
             javaMailSender.send(message);
         } catch (MessagingException e) {
-            e.printStackTrace();
-            return new Email(to, subject, message, false);
+            logger.error("Error with sending message with HTML text " + e);
         }
-        return new Email(to, subject, message, true);
+        return new EmailResponse(to, subject, htmlString, currentDate, true);
     }
 
     @Override
-    public Email sendMailWithHtmlInlineImage(String to, String subject) {
-        final String HTML_BODY = "<h1>Hey man</h1>\n" + "<h2>Hey man</h2>\n" + "<img src=\"cid:image@iba.by\"/>";
-        final String BANNER_URL = "https://i1.wp.com/technology.amis.nl/wp-content/uploads/2018/01/spring-boot.png?" +
-                "fit=702%2C336&ssl=1";
-        MimeMessage message = null;
+    public EmailResponse sendMailWithHtmlInlineImage(String to, String subject, String urlOfAttachment) {
 
+        MimeMessage message = null;
         try {
-            URL url = new URL(BANNER_URL);
+            URL url = new URL(urlOfAttachment);
 
             message = javaMailSender.createMimeMessage();
             Multipart multipart = new MimeMultipart();
@@ -101,25 +110,21 @@ public class EmailRepositoryImpl implements EmailRepository {
             messageHelper.setTo(to);
             messageHelper.setSubject(subject);
 
-            // Creating and adding html part to email html page
-            MimeBodyPart htmlPart = new MimeBodyPart();
-            htmlPart.setContent(HTML_BODY, "text/html; charset=UTF-8");
-
             // Creating and adding inline image using Content-ID to email html page
             MimeBodyPart inlineImage = new MimeBodyPart();
             inlineImage.setContentID("<image@iba.by>");
             inlineImage.setHeader("Content-Disposition", "inline");
             inlineImage.setDataHandler(new DataHandler(url));
 
-            multipart.addBodyPart(htmlPart);
             multipart.addBodyPart(inlineImage);
             message.setContent(multipart);
 
+            currentDate = simpleDateFormat.format(new Date());
+
             javaMailSender.send(message);
         } catch (MessagingException | MalformedURLException e) {
-            e.printStackTrace();
-            return new Email(to, subject, message, false);
+            logger.error("Error with sending message with inline images " + e);
         }
-        return new Email(to, subject, message, true);
+        return new EmailResponse(to, subject, message.toString(), currentDate, true);
     }
 }
