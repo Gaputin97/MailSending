@@ -1,10 +1,15 @@
 package com.business.mail.model;
 
 import io.swagger.annotations.ApiModelProperty;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.Email;
+
+@Document(collection = "emailRequest")
 public class EmailRequest {
 
     @ApiModelProperty(notes = "Email who takes mails")
+    @Email
     private String recipientEmail;
 
     @ApiModelProperty(notes = "Data which sending to recipient")

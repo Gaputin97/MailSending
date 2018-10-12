@@ -2,7 +2,7 @@ package com.business.mail.repository;
 
 import com.business.mail.model.EmailResponse;
 
-public interface EmailRepository {
+public interface EmailSenderRepository {
 
     EmailResponse sendSimpleMessage(String to, String subject, String text);
 

@@ -1,6 +1,7 @@
 package com.business.mail.repository;
 
 import com.business.mail.model.EmailResponse;
+import com.business.mail.service.dao.EmailResponseService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +25,9 @@ import java.util.Date;
 import java.util.Locale;
 
 @Repository
-public class EmailRepositoryImpl implements EmailRepository {
+public class EmailSenderRepositoryImpl implements EmailSenderRepository {
 
-    private Logger logger = LoggerFactory.getLogger(EmailRepositoryImpl.class);
+    private Logger logger = LoggerFactory.getLogger(EmailSenderRepositoryImpl.class);
 
     private String currentDate;
 
@@ -36,9 +37,14 @@ public class EmailRepositoryImpl implements EmailRepository {
 
     private final JavaMailSender javaMailSender;
 
+    private EmailResponse emailResponse;
+
+    private EmailResponseService emailResponseService;
+
     @Autowired
-    public EmailRepositoryImpl(JavaMailSender javaMailSender) {
+    public EmailSenderRepositoryImpl(JavaMailSender javaMailSender, EmailResponseService emailResponseService) {
         this.javaMailSender = javaMailSender;
+        this.emailResponseService = emailResponseService;
     }
 
     @Override
@@ -51,9 +57,12 @@ public class EmailRepositoryImpl implements EmailRepository {
         currentDate = simpleDateFormat.format(new Date());
 
         javaMailSender.send(simpleMailMessage);
-        logger.error("Logger: Simple mail sending works NOT RIGHT");
 
-        return new EmailResponse(to, subject, text, currentDate, true);
+        emailResponse = new EmailResponse(to, subject, text, currentDate, true);
+
+        emailResponseService.save(emailResponse);
+
+        return emailResponse;
     }
 
     @Override
@@ -73,7 +82,12 @@ public class EmailRepositoryImpl implements EmailRepository {
         } catch (MessagingException e) {
             logger.error("Error sending message with attachment " + e);
         }
-        return new EmailResponse(to, subject, pathToAttachment, currentDate, true );
+
+        emailResponse = new EmailResponse(to, subject, pathToAttachment, currentDate, true );
+
+        emailResponseService.save(emailResponse);
+
+        return emailResponse;
     }
 
     @Override
@@ -93,7 +107,12 @@ public class EmailRepositoryImpl implements EmailRepository {
         } catch (MessagingException e) {
             logger.error("Error with sending message with HTML text " + e);
         }
-        return new EmailResponse(to, subject, htmlString, currentDate, true);
+
+        emailResponse = new EmailResponse(to, subject, htmlString, currentDate, true);
+
+        emailResponseService.save(emailResponse);
+
+        return emailResponse;
     }
 
     @Override
@@ -125,6 +144,11 @@ public class EmailRepositoryImpl implements EmailRepository {
         } catch (MessagingException | MalformedURLException e) {
             logger.error("Error with sending message with inline images " + e);
         }
-        return new EmailResponse(to, subject, message.toString(), currentDate, true);
+
+        emailResponse = new EmailResponse(to, subject, message.toString(), currentDate, true);
+
+        emailResponseService.save(emailResponse);
+
+        return emailResponse;
     }
 }

@@ -1,6 +1,17 @@
 package com.business.mail.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import javax.validation.constraints.Email;
+
+@Document(collection = "emailResponse")
 public class EmailResponse {
+
+    @Id
+    private int id;
+
+    @Email
     private String recipientEmail;
 
     private String messageSubject;
@@ -9,7 +20,7 @@ public class EmailResponse {
 
     private String dateOfResponse;
 
-    private Boolean isDelivered;
+    private boolean isDelivered;
 
     public EmailResponse() {
     }
@@ -23,43 +34,35 @@ public class EmailResponse {
         this.isDelivered = isDelivered;
     }
 
-    public String getRecipientEmail() {
-        return recipientEmail;
+    public int getId() {
+        return id;
     }
 
-    public void setRecipientEmail(String recipientEmail) {
-        this.recipientEmail = recipientEmail;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getSubjectOfMessage() {
+    public String getMessageSubject() {
         return messageSubject;
     }
 
-    public void setSubjectOfMessage(String messageSubject) {
+    public void setMessageSubject(String messageSubject) {
         this.messageSubject = messageSubject;
     }
 
-    public Object getBodyOfMessage() {
+    public Object getMessageBody() {
         return messageBody;
     }
 
-    public void setBodyOfMessage(Object messageBody) {
+    public void setMessageBody(Object messageBody) {
         this.messageBody = messageBody;
     }
 
-    public String getDateOfResponse() {
-        return dateOfResponse;
-    }
-
-    public void setDateOfResponse(String dateOfResponse) {
-        this.dateOfResponse = dateOfResponse;
-    }
-
-    public Boolean getDelivered() {
+    public boolean isDelivered() {
         return isDelivered;
     }
 
-    public void setDelivered(Boolean delivered) {
+    public void setDelivered(boolean delivered) {
         isDelivered = delivered;
     }
 
