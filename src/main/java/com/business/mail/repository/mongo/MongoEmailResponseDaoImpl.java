@@ -1,7 +1,6 @@
-package com.business.mail.repository.dao;
+package com.business.mail.repository.mongo;
 
 import com.business.mail.model.EmailResponse;
-import com.business.mail.repository.dao.EmailResponseDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -11,14 +10,14 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class EmailResponseDaoImpl implements EmailResponseDao {
+public class MongoEmailResponseDaoImpl implements MongoEmailResponseDao {
 
     private final MongoTemplate mongoTemplate;
 
     private final String COLLECTION_NAME = "emailResponse";
 
     @Autowired
-    public EmailResponseDaoImpl(MongoTemplate mongoTemplate) {
+    public MongoEmailResponseDaoImpl(MongoTemplate mongoTemplate) {
         this.mongoTemplate = mongoTemplate;
     }
 

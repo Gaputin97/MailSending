@@ -42,6 +42,14 @@ public class EmailResponse {
         this.id = id;
     }
 
+    public String getRecipientEmail() {
+        return recipientEmail;
+    }
+
+    public void setRecipientEmail(String recipientEmail) {
+        this.recipientEmail = recipientEmail;
+    }
+
     public String getMessageSubject() {
         return messageSubject;
     }
@@ -56,6 +64,14 @@ public class EmailResponse {
 
     public void setMessageBody(Object messageBody) {
         this.messageBody = messageBody;
+    }
+
+    public String getDateOfResponse() {
+        return dateOfResponse;
+    }
+
+    public void setDateOfResponse(String dateOfResponse) {
+        this.dateOfResponse = dateOfResponse;
     }
 
     public boolean isDelivered() {

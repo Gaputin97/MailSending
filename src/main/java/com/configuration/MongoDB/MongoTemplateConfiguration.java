@@ -5,6 +5,7 @@ import com.mongodb.MongoClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
@@ -12,19 +13,13 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 @PropertySource("classpath:mongoDataBase.properties")
 public class MongoTemplateConfiguration {
 
-    @Value("${mongo.database.localhost}")
-    private String localhost;
-
-    @Value("${mongo.database.name}")
-    private String dataBaseName;
-
-    @Bean
-    public MongoClient mongoClient() {
-        return new MongoClient(localhost);
+    private MongoClient mongoClient(String host) {
+        return new MongoClient(host);
     }
 
     @Bean
-    public MongoTemplate mongoTemplate() {
-        return new MongoTemplate(mongoClient(),dataBaseName);
+    public MongoTemplate mongoTemplate(@Value("${mongo.database.name}") String dataBaseName,
+                                       @Value("${mongo.database.host}") String host) {
+        return new MongoTemplate(mongoClient(host), dataBaseName);
     }
 }

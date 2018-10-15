@@ -1,10 +1,10 @@
-package com.business.mail.service.dao;
+package com.business.mail.service.mongo;
 
 import com.business.mail.model.EmailResponse;
 
 import java.util.List;
 
-public interface EmailResponseService {
+public interface MongoEmailResponseService {
     void save(EmailResponse emailResponse);
 
     EmailResponse get(EmailResponse emailResponse);
