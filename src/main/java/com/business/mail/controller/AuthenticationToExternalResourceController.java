@@ -25,17 +25,15 @@ public class AuthenticationToExternalResourceController {
     public ResponseEntity sendGet() throws IllegalStateException, IOException {
         URL url = new URL(C3_URL);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        connection.setDoInput(true);
-        connection.setDoOutput(true);
 
         String userCredentials = "seva.user@ibm.com:1234";
         String basicAuthHeader = "Basic " + new String(Base64.getEncoder().encode(userCredentials.getBytes()));
         connection.setRequestProperty("Authorization", basicAuthHeader);
 
         ObjectMapper objectMapper = new ObjectMapper();
-        logger.warn("Type of response: " + connection.getContentType());
         JsonNode rootNode = objectMapper.readTree(connection.getInputStream());
         JsonNode groupNode = rootNode.findPath("roles");
+        logger.warn("Type of response: " + connection.getContentType());
         logger.info("Roles node: " + groupNode);
 
         connection.disconnect();
