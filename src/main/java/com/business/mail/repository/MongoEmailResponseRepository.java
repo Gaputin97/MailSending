@@ -1,15 +1,15 @@
-package com.business.mail.repository.mongo;
+package com.business.mail.repository;
 
 import com.business.mail.model.EmailResponse;
 
 import java.util.List;
 
-public interface MongoEmailResponseDao {
+public interface MongoEmailResponseRepository {
       void save(EmailResponse emailResponse);
 
       EmailResponse find(EmailResponse emailResponse);
 
       void delete(EmailResponse emailResponse);
 
-      List<EmailResponse> deleteAll();
+      void deleteAll();
 }

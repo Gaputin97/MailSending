@@ -1,7 +1,7 @@
 package com.business.mail.service;
 
 import com.business.mail.model.EmailResponse;
-import com.business.mail.service.mongo.MongoEmailResponseService;
+import com.business.mail.repository.MongoEmailResponseRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,12 +36,13 @@ public class EmailSenderServiceImpl implements EmailSenderService {
 
     private final JavaMailSender javaMailSender;
 
-    private final MongoEmailResponseService mongoEmailResponseService;
+    private final MongoEmailResponseRepository mongoEmailResponseRepository;
 
     @Autowired
-    public EmailSenderServiceImpl(JavaMailSender javaMailSender, MongoEmailResponseService mongoEmailResponseService) {
+    public EmailSenderServiceImpl(JavaMailSender javaMailSender,
+                                  MongoEmailResponseRepository mongoEmailResponseRepository) {
         this.javaMailSender = javaMailSender;
-        this.mongoEmailResponseService = mongoEmailResponseService;
+        this.mongoEmailResponseRepository = mongoEmailResponseRepository;
     }
 
     @Override
@@ -55,11 +56,9 @@ public class EmailSenderServiceImpl implements EmailSenderService {
 
         javaMailSender.send(simpleMailMessage);
 
-        logger.info(sendingDateTime);
-
         EmailResponse emailResponse = new EmailResponse(to, subject, text, sendingDateTime, true);
-        
-        mongoEmailResponseService.save(emailResponse);
+
+        mongoEmailResponseRepository.save(emailResponse);
 
         return emailResponse;
     }
@@ -84,9 +83,9 @@ public class EmailSenderServiceImpl implements EmailSenderService {
             logger.error("Error sending message with attachment " + e);
         }
 
-        EmailResponse emailResponse = new EmailResponse(to, subject, pathToAttachment, sendingDateTime, true );
+        EmailResponse emailResponse = new EmailResponse(to, subject, pathToAttachment, sendingDateTime, true);
 
-        mongoEmailResponseService.save(emailResponse);
+        mongoEmailResponseRepository.save(emailResponse);
 
         return emailResponse;
     }
@@ -113,14 +112,13 @@ public class EmailSenderServiceImpl implements EmailSenderService {
 
         EmailResponse emailResponse = new EmailResponse(to, subject, htmlString, sendingDateTime, true);
 
-        mongoEmailResponseService.save(emailResponse);
+        mongoEmailResponseRepository.save(emailResponse);
 
         return emailResponse;
     }
 
     @Override
     public EmailResponse sendMailWithHtmlInlineImage(String to, String subject, String urlOfAttachment) {
-
         String sendingDateTime = null;
 
         MimeMessage message = null;
@@ -150,9 +148,10 @@ public class EmailSenderServiceImpl implements EmailSenderService {
             logger.error("Error with sending message with inline images " + e);
         }
 
-        EmailResponse emailResponse = new EmailResponse(to, subject, message.toString(), sendingDateTime, true);
+        EmailResponse emailResponse = new EmailResponse(to, subject, message.toString(), sendingDateTime,
+                true);
 
-        mongoEmailResponseService.save(emailResponse);
+        mongoEmailResponseRepository.save(emailResponse);
 
         return emailResponse;
     }

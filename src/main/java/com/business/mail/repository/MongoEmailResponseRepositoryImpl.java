@@ -1,4 +1,4 @@
-package com.business.mail.repository.mongo;
+package com.business.mail.repository;
 
 import com.business.mail.model.EmailResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,17 +7,14 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 @Repository
-public class MongoEmailResponseDaoImpl implements MongoEmailResponseDao {
-
+public class MongoEmailResponseRepositoryImpl implements MongoEmailResponseRepository {
     private final MongoTemplate mongoTemplate;
 
-    private final String COLLECTION_NAME = "emailResponse";
+    private final String COLLECTION_NAME = "email_response";
 
     @Autowired
-    public MongoEmailResponseDaoImpl(MongoTemplate mongoTemplate) {
+    public MongoEmailResponseRepositoryImpl(MongoTemplate mongoTemplate) {
         this.mongoTemplate = mongoTemplate;
     }
 
@@ -38,7 +35,8 @@ public class MongoEmailResponseDaoImpl implements MongoEmailResponseDao {
     }
 
     @Override
-    public List<EmailResponse> deleteAll() {
-        return mongoTemplate.findAll(EmailResponse.class);
+    public void deleteAll() {
+        Query query = new Query(Criteria.where("_id"));
+        mongoTemplate.findAllAndRemove(query, COLLECTION_NAME);
     }
 }

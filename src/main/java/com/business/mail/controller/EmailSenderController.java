@@ -5,12 +5,14 @@ import com.business.mail.model.EmailResponse;
 import com.business.mail.service.EmailSenderService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value = "/send/email", produces = "application/json", consumes = "application/json")
 public class EmailSenderController {
-
     private final EmailSenderService emailSenderService;
 
     @Autowired

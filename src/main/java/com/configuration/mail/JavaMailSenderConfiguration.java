@@ -10,14 +10,13 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 import java.util.Properties;
 
 @Configuration
-public class JavaMailSenderConfig {
+public class JavaMailSenderConfiguration {
     @Bean
     public JavaMailSender getJavaMailSender(@Value("${mail.host}") String host,
                                             @Value("${mail.port}") Integer port,
                                             @Value("${mail.username}") String username,
                                             @Value("${mail.password}") String password) {
         JavaMailSenderImpl javaMailSender = new JavaMailSenderImpl();
-
         javaMailSender.setHost(host);
         javaMailSender.setPort(port);
         javaMailSender.setUsername(username);
@@ -27,7 +26,7 @@ public class JavaMailSenderConfig {
         return javaMailSender;
     }
 
-    public static Properties getMailProperties() {
+    private static Properties getMailProperties() {
         Properties properties = new Properties();
         properties.setProperty("mail.transport.protocol", "smtp");
         properties.setProperty("mail.smtp.auth", "true");
@@ -36,5 +35,4 @@ public class JavaMailSenderConfig {
 
         return properties;
     }
-
 }

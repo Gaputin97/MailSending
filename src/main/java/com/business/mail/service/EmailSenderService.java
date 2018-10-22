@@ -3,7 +3,6 @@ package com.business.mail.service;
 import com.business.mail.model.EmailResponse;
 
 public interface EmailSenderService {
-
     EmailResponse sendSimpleMessage(String to, String subject, String text);
 
     EmailResponse sendMessageWithAttachment(String to, String subject, String pathToAttachment);

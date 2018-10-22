@@ -5,9 +5,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.Email;
 
-@Document(collection = "emailResponse")
+@Document(collection = "email_response")
 public class EmailResponse {
-
     @Id
     private int id;
 

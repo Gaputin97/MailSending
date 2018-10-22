@@ -12,7 +12,6 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 @Configuration
 @PropertySource("classpath:mongoDataBase.properties")
 public class MongoTemplateConfiguration {
-
     private MongoClient mongoClient(String host) {
         return new MongoClient(host);
     }

@@ -5,9 +5,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.Email;
 
-@Document(collection = "emailRequest")
+@Document(collection = "email_request")
 public class EmailRequest {
-
     @ApiModelProperty(notes = "Email who takes mails")
     @Email
     private String recipientEmail;
