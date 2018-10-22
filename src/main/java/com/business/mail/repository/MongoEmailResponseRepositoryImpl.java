@@ -1,6 +1,7 @@
 package com.business.mail.repository;
 
 import com.business.mail.model.EmailResponse;
+import com.business.user.model.UserProfile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;

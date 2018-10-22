@@ -19,6 +19,12 @@ public class MongoUserRepositoryImpl implements MongoUserRepository{
     }
 
     @Override
+    public UserProfile getById(String id) {
+        Query query = new Query(Criteria.where("_id").is(id));
+        return mongoTemplate.findOne(query, UserProfile.class, COLLECTION_NAME);
+    }
+
+    @Override
     public void save(UserProfile userProfile) {
         mongoTemplate.save(userProfile, COLLECTION_NAME);
     }

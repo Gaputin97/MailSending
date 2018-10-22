@@ -28,7 +28,6 @@ import static java.time.ZoneOffset.UTC;
 
 @Service
 public class EmailSenderServiceImpl implements EmailSenderService {
-
     private static Logger logger = LoggerFactory.getLogger(EmailSenderServiceImpl.class);
 
     private static final DateTimeFormatter DATE_TIME_FORMAT_UTC = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ssZ")

@@ -11,8 +11,7 @@ public class ApplicationInterceptorConfiguration implements WebMvcConfigurer {
     private BasicSecurityAuthenticationInterceptor basicSecurityAuthenticationInterceptor;
 
     @Autowired
-    public ApplicationInterceptorConfiguration(BasicSecurityAuthenticationInterceptor
-                                                           basicSecurityAuthenticationInterceptor) {
+    public ApplicationInterceptorConfiguration(BasicSecurityAuthenticationInterceptor basicSecurityAuthenticationInterceptor) {
         this.basicSecurityAuthenticationInterceptor = basicSecurityAuthenticationInterceptor;
     }
 

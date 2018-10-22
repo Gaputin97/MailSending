@@ -1,6 +1,7 @@
 package com.business.mail.repository;
 
 import com.business.mail.model.EmailResponse;
+import com.business.user.model.UserProfile;
 
 import java.util.List;
 
