@@ -11,7 +11,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class MongoEmailResponseRepositoryImpl implements MongoEmailResponseRepository {
     private final MongoTemplate mongoTemplate;
-
     private final String COLLECTION_NAME = "email_response";
 
     @Autowired

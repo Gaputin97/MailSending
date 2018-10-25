@@ -29,12 +29,9 @@ import static java.time.ZoneOffset.UTC;
 @Service
 public class EmailSenderServiceImpl implements EmailSenderService {
     private static Logger logger = LoggerFactory.getLogger(EmailSenderServiceImpl.class);
-
     private static final DateTimeFormatter DATE_TIME_FORMAT_UTC = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ssZ")
             .withZone(UTC);
-
     private final JavaMailSender javaMailSender;
-
     private final MongoEmailResponseRepository mongoEmailResponseRepository;
 
     @Autowired
@@ -52,11 +49,9 @@ public class EmailSenderServiceImpl implements EmailSenderService {
         simpleMailMessage.setText(text);
 
         String sendingDateTime = ZonedDateTime.now().format(DATE_TIME_FORMAT_UTC);
-
         javaMailSender.send(simpleMailMessage);
 
         EmailResponse emailResponse = new EmailResponse(to, subject, text, sendingDateTime, true);
-
         mongoEmailResponseRepository.save(emailResponse);
 
         return emailResponse;

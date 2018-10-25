@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class MongoUserRepositoryImpl implements MongoUserRepository{
     private static final String COLLECTION_NAME = "user_profile";
-
     private final MongoTemplate mongoTemplate;
 
     @Autowired
