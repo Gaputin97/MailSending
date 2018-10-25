@@ -18,7 +18,6 @@ public class  AuthenticationService {
     private static final Logger logger = LoggerFactory.getLogger(AuthenticationService.class);
     private RestTemplate restTemplate;
     private URI authenticationUri;
-    private int i = 0;
 
     @Autowired
     public AuthenticationService(RestTemplate restTemplate, URI authenticationUri) {
@@ -36,6 +35,8 @@ public class  AuthenticationService {
         try {
             ResponseEntity<UserProfile> responseEntityOfUserProfile = restTemplate.exchange(authenticationUri, HttpMethod.GET,
                     httpEntity, UserProfile.class);
+
+            logger.info("User roles: " + responseEntityOfUserProfile.getBody().getRoles());
         } catch (HttpClientErrorException exception) {
             int statusCode = exception.getStatusCode().value();
             logger.info("Status Code: " + statusCode);
