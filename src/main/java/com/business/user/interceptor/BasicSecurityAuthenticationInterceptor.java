@@ -24,7 +24,6 @@ public class BasicSecurityAuthenticationInterceptor extends HandlerInterceptorAd
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        logger.info("Interceptor***********************************");
         if(authenticationService.isRightCredentials(request)) {
             return super.preHandle(request, response, handler);
         }

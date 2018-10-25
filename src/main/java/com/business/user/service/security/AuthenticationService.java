@@ -40,10 +40,10 @@ public class  AuthenticationService {
             int statusCode = exception.getStatusCode().value();
             logger.info("Status Code: " + statusCode);
             switch (statusCode) {
-                case 401: throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
-                case 403: throw new ResponseStatusException(HttpStatus.FORBIDDEN);
-                case 404: throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-                case 500 - 504: throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
+                case 401 : throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
+                case 403 : throw new ResponseStatusException(HttpStatus.FORBIDDEN);
+                case 404 : throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+                case 500 : throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
             }
         }
         return true;
