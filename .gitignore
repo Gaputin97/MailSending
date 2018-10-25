@@ -24,3 +24,8 @@ hs_err_pid*
 
 # Properties files
 *.properties
+
+# Gradle folders
+.gradle
+.idea
+gradlew
