@@ -8,7 +8,7 @@ import javax.validation.constraints.Email;
 @Document(collection = "email_response")
 public class EmailResponse {
     @Id
-    private int id;
+    private int _id;
 
     @Email
     private String recipientEmail;
@@ -33,12 +33,12 @@ public class EmailResponse {
         this.isDelivered = isDelivered;
     }
 
-    public int getId() {
-        return id;
+    public int get_id() {
+        return _id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void set_id(int _id) {
+        this._id = _id;
     }
 
     public String getRecipientEmail() {

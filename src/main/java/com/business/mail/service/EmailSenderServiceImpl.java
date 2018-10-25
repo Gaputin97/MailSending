@@ -5,6 +5,7 @@ import com.business.mail.repository.MongoEmailResponseRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -31,15 +32,12 @@ public class EmailSenderServiceImpl implements EmailSenderService {
     private static Logger logger = LoggerFactory.getLogger(EmailSenderServiceImpl.class);
     private static final DateTimeFormatter DATE_TIME_FORMAT_UTC = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ssZ")
             .withZone(UTC);
-    private final JavaMailSender javaMailSender;
-    private final MongoEmailResponseRepository mongoEmailResponseRepository;
 
     @Autowired
-    public EmailSenderServiceImpl(JavaMailSender javaMailSender,
-                                  MongoEmailResponseRepository mongoEmailResponseRepository) {
-        this.javaMailSender = javaMailSender;
-        this.mongoEmailResponseRepository = mongoEmailResponseRepository;
-    }
+    private JavaMailSender javaMailSender;
+
+    @Autowired
+    private MongoEmailResponseRepository mongoEmailResponseRepository;
 
     @Override
     public EmailResponse sendSimpleMessage(String to, String subject, String text) {

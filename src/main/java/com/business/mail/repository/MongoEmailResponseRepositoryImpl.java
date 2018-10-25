@@ -1,7 +1,6 @@
 package com.business.mail.repository;
 
 import com.business.mail.model.EmailResponse;
-import com.business.user.model.UserProfile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -25,7 +24,7 @@ public class MongoEmailResponseRepositoryImpl implements MongoEmailResponseRepos
 
     @Override
     public EmailResponse find(EmailResponse emailResponse) {
-        Query query = new Query(Criteria.where("_id").is(emailResponse.getId()));
+        Query query = new Query(Criteria.where("_id").is(emailResponse.get_id()));
         return mongoTemplate.findOne(query, EmailResponse.class, COLLECTION_NAME);
     }
 
