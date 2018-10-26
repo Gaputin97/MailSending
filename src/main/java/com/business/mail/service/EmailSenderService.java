@@ -1,6 +1,7 @@
 package com.business.mail.service;
 
 import com.business.mail.model.EmailResponse;
+import net.fortuna.ical4j.model.Calendar;
 
 public interface EmailSenderService {
     EmailResponse sendSimpleMessage(String to, String subject, String text);
@@ -9,5 +10,5 @@ public interface EmailSenderService {
 
     EmailResponse sendMessageWithHtmlText(String to, String subject, String htmlString);
 
-    EmailResponse sendMailWithHtmlInlineImage(String to, String subject, String urlOfAttachment);
+    EmailResponse sendMailWithHtmlInlineImage(String to, String subject, Calendar calendar);
 }

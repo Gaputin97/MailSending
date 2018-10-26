@@ -4,6 +4,7 @@ import com.business.mail.model.EmailRequest;
 import com.business.mail.model.EmailResponse;
 import com.business.mail.service.EmailSenderService;
 import io.swagger.annotations.ApiOperation;
+import net.fortuna.ical4j.model.Calendar;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,10 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/send/email", produces = "application/json", consumes = "application/json")
 public class EmailSenderController {
     private final EmailSenderService emailSenderService;
+    private Calendar calendar;
 
     @Autowired
-    public EmailSenderController(EmailSenderService emailSenderService) {
+    public EmailSenderController(EmailSenderService emailSenderService, Calendar calendar) {
         this.emailSenderService = emailSenderService;
+        this.calendar = calendar;
     }
 
     @ApiOperation(value = "Send simple mail")
@@ -45,6 +48,6 @@ public class EmailSenderController {
     @PostMapping(value = "/image")
     public EmailResponse sendEmailWithInlineImg(@RequestBody EmailRequest emailRequest) {
         return emailSenderService.sendMailWithHtmlInlineImage(emailRequest.getRecipientEmail(),
-                emailRequest.getMessageSubject(), emailRequest.getMessageBody());
+                emailRequest.getMessageSubject(), calendar);
     }
 }
