@@ -23,24 +23,10 @@ public class EmailSenderController {
         this.calendar = calendar;
     }
 
-    @ApiOperation(value = "Send simple mail")
-    @PostMapping(value = "/simple")
-    public EmailResponse sendEmail(@RequestBody EmailRequest emailRequest){
-        return emailSenderService.sendSimpleMessage(emailRequest.getRecipientEmail(),
-                emailRequest.getMessageSubject(), emailRequest.getMessageBody());
-    }
-
     @ApiOperation(value = "Send mail with attachment")
     @PostMapping(value = "/attachment")
     public EmailResponse sendEmailWithAttachments(@RequestBody EmailRequest emailRequest) {
         return emailSenderService.sendMessageWithAttachment(emailRequest.getRecipientEmail(),
-                emailRequest.getMessageSubject(), emailRequest.getMessageBody());
-    }
-
-    @ApiOperation(value = "Send mail with HTML body")
-    @PostMapping(value = "/html")
-    public EmailResponse sendEmailWithHtmlBody(@RequestBody EmailRequest emailRequest) {
-        return emailSenderService.sendMessageWithHtmlText(emailRequest.getRecipientEmail(),
                 emailRequest.getMessageSubject(), emailRequest.getMessageBody());
     }
 

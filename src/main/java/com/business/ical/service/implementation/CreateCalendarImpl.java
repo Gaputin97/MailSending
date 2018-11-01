@@ -10,11 +10,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
+import java.net.URI;
 import java.net.URISyntaxException;
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 @Service
 public class CreateCalendarImpl implements CreateCalendar {
@@ -23,60 +22,50 @@ public class CreateCalendarImpl implements CreateCalendar {
     @Bean
     @Override
     public Calendar calendar() throws ParseException, URISyntaxException {
-        DateTime eventStartDateTime1 = new DateTime("20181029T130000Z");
-        DateTime eventEndDateTime1 = new DateTime("20181029T142500Z");
-
-        DateTime eventStartDateTime2 = new DateTime("20181030T145000Z");
-        DateTime eventEndDateTime2 = new DateTime("20181030T154500Z");
-
-        DateTime eventStartDateTime3 = new DateTime("20181031T111500Z");
-        DateTime eventEndDateTime3 = new DateTime("20181031T140000Z");
-
         Calendar calendar = new Calendar();
         calendar.getProperties().add(Version.VERSION_2_0);
         calendar.getProperties().add(CalScale.GREGORIAN);
         calendar.getProperties().add(new ProdId("-//Event Central//EN"));
-//        calendar.getProperties().add(Method.REQUEST);
+        calendar.getProperties().add(Method.REQUEST);
 
-        VEvent event1 = new VEvent(
-                eventStartDateTime1,
-                eventEndDateTime1,
-                "Test IBM Subject");
-        PropertyList<Property> eventProperties1 = getEventProperties(event1);
-        Uid uid1 = new Uid("1111111111111111111");
-        event1.getProperties().add(uid1);
-        event1.getProperties().addAll(eventProperties1);
+        DateTime eventStartDateTime = new DateTime("20181031T130000Z");
+        DateTime eventEndDateTime = new DateTime("20181031T152500Z");
+        VEvent event = new VEvent(eventStartDateTime, eventEndDateTime,"Test IBM Subject");
+        PropertyList<Property> eventProperties1 = getEventProperties();
 
-        VEvent event2 = new VEvent(
-                eventStartDateTime2,
-                eventEndDateTime2,
-                "Test IBM Subject");
-        PropertyList<Property> eventProperties2 = getEventProperties(event2);
-        Uid uid2 = new Uid("22222222222222222222");
-        event2.getProperties().add(uid2);
-        event2.getProperties().addAll(eventProperties2);
+        RRule rule = new RRule("FREQ=WEEKLY;BYDAY=MO,WE,FR;UNTIL=20181115T000000Z");
+        event.getProperties().add(rule);
+        event.getProperties().add(Transp.OPAQUE);
+        event.getProperties().addAll(eventProperties1);
 
-        VEvent event3 = new VEvent(
-                eventStartDateTime3,
-                eventEndDateTime3,
-                "Test IBM Subject");
-        PropertyList<Property> eventProperties3 = getEventProperties(event3);
-        Uid uid3 = new Uid("33333333333333333333");
-        event3.getProperties().add(uid3);
-        event3.getProperties().addAll(eventProperties3);
+        Attendee dev1 = new Attendee(URI.create("mailto:gaputin@hotmail.com"));
+        dev1.getParameters().add(Role.REQ_PARTICIPANT);
+        dev1.getParameters().add(Rsvp.FALSE);
+        dev1.getParameters().add(new Cn("Developer 1"));
 
-        List<VEvent> list = new ArrayList<>();
-        list.add(event1);
-        list.add(event2);
-        list.add(event3);
+        Attendee dev2 = new Attendee(URI.create("mailto:gaputinsevaiba@gmail.com"));
+        dev2.getParameters().add(Role.REQ_PARTICIPANT);
+        dev2.getParameters().add(Rsvp.FALSE);
+        dev2.getParameters().add(new Cn("Developer 2"));
 
-        calendar.getComponents().addAll(list);
+        Attendee dev3 = new Attendee(URI.create("mailto:UHaputsin@ibagroup.eu"));
+        dev3.getParameters().add(Role.REQ_PARTICIPANT);
+        dev3.getParameters().add(Rsvp.FALSE);
+        dev3.getParameters().add(new Cn("Developer 3"));
 
+        event.getProperties().add(dev1);
+        event.getProperties().add(dev2);
+        event.getProperties().add(dev3);
+
+        Uid uid1 = new Uid("155446456846810116645610");
+        event.getProperties().add(uid1);
+        calendar.getComponents().add(event);
         logger.info("\nCalendar:\n" + calendar);
+
         return calendar;
     }
 
-    private PropertyList<Property> getEventProperties(VEvent event) throws URISyntaxException {
+    private PropertyList<Property> getEventProperties() throws URISyntaxException {
 
         PropertyList<Property> propertyList = new PropertyList<>();
 
@@ -89,22 +78,20 @@ public class CreateCalendarImpl implements CreateCalendar {
 
         Description descriptionProperty = new Description("Description");
         Transp transpProperty = Transp.TRANSPARENT;
-//        XProperty lotusBroadcast = new XProperty("X-LOTUS-BROADCAST","TRUE");
-//        XProperty lotusNotesType = new XProperty("X-LOTUS-NOTICETYPE", "A");
-//        XProperty lotusPreventCounter = new XProperty("X-LOTUS-PREVENTCOUNTER", "FALSE");
-//        XProperty microsoftDisallowCounter = new XProperty("X-MICROSOFT-DISALLOW-COUNTER", "TRUE");
-//        XProperty lotusPreventDelegation = new XProperty("X-LOTUS-PREVENTDELEGATION", "TRUE");
-//        XProperty lotusVersion = new XProperty("X-LOTUS-NOTESVERSION","2");
-//        XProperty lotusAppType = new XProperty("X-LOTUS-APPTTYPE", "3");
-//        XProperty updateSeq = new XProperty("X-LOTUS-UPDATE-SEQ");
-//        XProperty saf = new XProperty("X-")
-//        CustomXProperty lotusUpdateWISL = new CustomXProperty("X-LOTUS-UPDATE-WISL");
-        //lotusUpdateWISL.setValue("$S:" + updateVersion + ";$L:" + updateVersion + ";$B:" + updateVersion);
+        XProperty lotusBroadcast = new XProperty("X-LOTUS-BROADCAST","TRUE");
+        XProperty lotusNotesType = new XProperty("X-LOTUS-NOTICETYPE", "A");
+        XProperty lotusPreventCounter = new XProperty("X-LOTUS-PREVENTCOUNTER", "FALSE");
+        XProperty microsoftDisallowCounter = new XProperty("X-MICROSOFT-DISALLOW-COUNTER", "TRUE");
+        XProperty outlookForceOpen = new XProperty("X-MS-OLK-FORCEINSPECTOROPEN", "TRUE");
+        XProperty msAttachment = new XProperty("X-MS-ATTACHMENT", "YES");
+        XProperty lotusUtf8 = new XProperty("X-LOTUS-CHARSET","UTF-8");
+        XProperty lotusPreventDelegation = new XProperty("X-LOTUS-PREVENTDELEGATION", "TRUE");
+        XProperty lotusVersion = new XProperty("X-LOTUS-NOTESVERSION","2");
+        XProperty lotusAppType = new XProperty("X-LOTUS-APPTTYPE", "3");
 
-        propertyList.addAll(Arrays.asList(transpProperty, organizerProperty, descriptionProperty, locationProperty/*
+        propertyList.addAll(Arrays.asList(transpProperty, organizerProperty, descriptionProperty, locationProperty,
                 lotusPreventDelegation, microsoftDisallowCounter, lotusVersion, lotusAppType,
-                 lotusBroadcast, lotusNotesType, lotusPreventCounter,
-                updateSeq*/));
+                 lotusBroadcast, lotusNotesType, lotusPreventCounter, lotusUtf8, outlookForceOpen, msAttachment));
 
         return propertyList;
     }

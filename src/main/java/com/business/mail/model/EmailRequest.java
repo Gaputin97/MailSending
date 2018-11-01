@@ -9,7 +9,7 @@ import javax.validation.constraints.Email;
 public class EmailRequest {
     @ApiModelProperty(notes = "Email who takes mails")
     @Email
-    private String recipientEmail;
+    private String[] recipientEmail;
 
     @ApiModelProperty(notes = "Data which sending to recipient")
     private String messageBody;
@@ -20,17 +20,17 @@ public class EmailRequest {
     public EmailRequest() {
     }
 
-    public EmailRequest(String recipientEmail, String messageSubject, String messageBody) {
+    public EmailRequest(String[] recipientEmail, String messageSubject, String messageBody) {
         this.recipientEmail = recipientEmail;
         this.messageSubject = messageSubject;
         this.messageBody = messageBody;
     }
 
-    public String getRecipientEmail() {
+    public String[] getRecipientEmail() {
         return recipientEmail;
     }
 
-    public void setRecipientEmail(String recipientEmail) {
+    public void setRecipientEmail(String[] recipientEmail) {
         this.recipientEmail = recipientEmail;
     }
 

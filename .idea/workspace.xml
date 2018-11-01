@@ -2,23 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e473e040-17a1-4f05-8f2d-3bca1528311b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/CreateCalendarImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/EventCancelImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/EventInviteImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/RebuildScheduleImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/ResheduleImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/UpdateScheduleImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/business/ical/service/interfaces/CreateCalendar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/business/ical/service/interfaces/EventCancel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/business/ical/service/interfaces/EventInvite.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/business/ical/service/interfaces/RebuildSchedule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/business/ical/service/interfaces/Reschedule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/business/ical/service/interfaces/UpdateSchedule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/CreateCalendarImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/CreateCalendarImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/business/mail/controller/EmailSenderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/business/mail/controller/EmailSenderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/business/mail/model/EmailRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/business/mail/model/EmailRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/business/mail/model/EmailResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/business/mail/model/EmailResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/business/mail/service/EmailSenderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/business/mail/service/EmailSenderService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/business/mail/service/EmailSenderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/business/mail/service/EmailSenderServiceImpl.java" afterDir="false" />
     </list>
@@ -65,7 +56,7 @@
     <session id="-1940576757">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="30" />
+          <entry key="project.closed" value="32" />
           <entry key="project.open.time.0" value="15" />
           <entry key="project.open.time.1" value="3" />
           <entry key="project.open.time.24" value="1" />
@@ -73,53 +64,53 @@
           <entry key="project.open.time.26" value="1" />
           <entry key="project.open.time.28" value="1" />
           <entry key="project.open.time.29" value="1" />
-          <entry key="project.open.time.32" value="1" />
+          <entry key="project.open.time.32" value="2" />
           <entry key="project.open.time.36" value="1" />
           <entry key="project.open.time.39" value="1" />
           <entry key="project.open.time.41" value="1" />
-          <entry key="project.open.time.5" value="6" />
+          <entry key="project.open.time.5" value="7" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="35" />
+          <entry key="project.opened" value="37" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="3" />
-          <entry key="gradle" value="9" />
+          <entry key="class" value="4" />
+          <entry key="gradle" value="13" />
           <entry key="groovy" value="4" />
           <entry key="htm" value="1" />
           <entry key="html" value="1" />
-          <entry key="java" value="782" />
+          <entry key="java" value="809" />
           <entry key="png" value="1" />
           <entry key="properties" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="3" />
-          <entry key="Groovy" value="13" />
+          <entry key="CLASS" value="4" />
+          <entry key="Groovy" value="17" />
           <entry key="HTML" value="2" />
           <entry key="Image" value="1" />
-          <entry key="JAVA" value="782" />
+          <entry key="JAVA" value="809" />
           <entry key="Properties" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="404" />
-          <entry key="gradle" value="30" />
+          <entry key="dummy" value="438" />
+          <entry key="gradle" value="31" />
           <entry key="html" value="20" />
-          <entry key="java" value="29178" />
+          <entry key="java" value="32999" />
           <entry key="properties" value="724" />
           <entry key="yml" value="68" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Groovy" value="30" />
+          <entry key="Groovy" value="31" />
           <entry key="HTML" value="20" />
-          <entry key="JAVA" value="29178" />
-          <entry key="PLAIN_TEXT" value="404" />
+          <entry key="JAVA" value="32999" />
+          <entry key="PLAIN_TEXT" value="438" />
           <entry key="Properties" value="724" />
           <entry key="YAML" value="68" />
         </counts>
@@ -137,26 +128,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/business/ical/service/interfaces/CreateCalendar.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/CreateCalendarImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="503">
+              <caret line="47" column="45" lean-forward="true" selection-start-line="47" selection-start-column="45" selection-end-line="47" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <marker date="1541065853321" expanded="true" signature="1054:1414" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/CreateCalendarImpl.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/business/mail/service/EmailSenderServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="104" column="16" lean-forward="true" selection-start-line="104" selection-start-column="16" selection-end-line="104" selection-end-column="16" />
+            <state relative-caret-position="520">
+              <caret line="91" column="70" lean-forward="true" selection-start-line="91" selection-start-column="70" selection-end-line="91" selection-end-column="70" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1540573806443" expanded="true" signature="1521:1798" ph="..." />
               </folding>
             </state>
           </provider>
@@ -384,7 +375,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="6157730761061" />
+        <entry key="$PROJECT_DIR$" value="6158067592677" />
         <entry key="$PROJECT_DIR$/.gradle" value="0" />
         <entry key="$PROJECT_DIR$/build.gradle" value="2322615208" />
         <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="2585518924" />
@@ -578,7 +569,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/business/user/service/UserProfileController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/business/user/service/AuthenticationService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/business/user/security/AuthenticationService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/business/mail/model/EmailRequest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/business/mail/repository/MongoEmailResponseRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/business/mail/repository/MongoEmailResponseRepositoryImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/business/user/model/UserProfile.java" />
@@ -592,7 +582,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/configuration/security/authentication/AuthenticationConfiguration.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/business/user/exception/UnauthorizedException.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/business/user/interceptor/BasicSecurityAuthenticationInterceptor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/business/mail/model/EmailResponse.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/configuration/application/authentication/AuthenticationConfiguration.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/configuration/application/AppConfig.java" />
         <option value="$PROJECT_DIR$/src/main/resources/endPoints.properties" />
@@ -619,11 +608,13 @@
         <option value="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/ResheduleImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/UpdateScheduleImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/business/ical/service/interfaces/CreateCalendar.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/business/mail/controller/EmailSenderController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/business/mail/model/EmailRequest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/business/mail/model/EmailResponse.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/business/mail/service/EmailSenderService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/business/mail/service/EmailSenderServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/business/mail/controller/EmailSenderController.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/CreateCalendarImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/business/mail/service/EmailSenderServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -634,9 +625,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="953" />
+    <option name="x" value="109" />
+    <option name="y" value="-8" />
     <option name="width" value="974" />
-    <option name="height" value="1047" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -646,7 +638,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -718,17 +710,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="business" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="interfaces" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mailsend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mailsend" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="business" type="462c0819:PsiDirectoryNode" />
               <item name="mail" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -751,7 +732,50 @@
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="business" type="462c0819:PsiDirectoryNode" />
               <item name="mail" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mailsend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mailsend" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="business" type="462c0819:PsiDirectoryNode" />
+              <item name="mail" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mailsend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mailsend" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="business" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mailsend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mailsend" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="business" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mailsend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mailsend" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="business" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+              <item name="repository" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mailsend" type="b2602c69:ProjectViewProjectNode" />
@@ -760,20 +784,11 @@
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="mailsend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="mailsend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Gradle: org.mnode.ical4j:ical4j:2.0.2" type="70bed36:NamedLibraryElementNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -788,7 +803,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/HaputsinU/IdeaProjects/mailsend/src/main/java/com/business/mail/model/EmailRequest.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540573821460" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541069523498" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -806,6 +821,9 @@
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\HaputsinU\IdeaProjects\mailsend\src\main\resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -929,12 +947,14 @@
       <workItem from="1540384360645" duration="17904000" />
       <workItem from="1540404746669" duration="5580000" />
       <workItem from="1540453315966" duration="25781000" />
-      <workItem from="1540544501523" duration="17336000" />
+      <workItem from="1540544501523" duration="17657000" />
+      <workItem from="1540802860310" duration="14836000" />
+      <workItem from="1540889486237" duration="43427000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="234159000" />
+    <option name="totallyTimeSpent" value="292743000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -946,9 +966,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49697703" visible="true" weight="0.195629" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49697703" visible="true" weight="0.17643923" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -958,7 +979,7 @@
       <window_info id="Web" order="7" sideWeight="0.5021692" side_tool="true" weight="0.21748401" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4989339" visible="true" weight="0.28850326" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989339" visible="true" weight="0.2548807" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.2516269" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -967,7 +988,7 @@
       <window_info anchor="bottom" id="Spring" order="8" weight="0.329718" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.329718" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5010661" side_tool="true" weight="0.4186551" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.3394794" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.3383948" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.329718" />
       <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="14" show_stripe_button="false" />
@@ -984,7 +1005,7 @@
       <window_info anchor="right" id="Bean Validation" order="10" weight="0.32995737" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49697703" weight="0.0" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49697703" visible="true" weight="0.20309168" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -994,7 +1015,7 @@
       <window_info id="Web" order="7" sideWeight="0.5021692" side_tool="true" weight="0.21748401" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49946696" visible="true" weight="0.966046" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4989339" visible="true" weight="0.4099783" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.2516269" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1002,8 +1023,8 @@
       <window_info anchor="bottom" id="Build" order="7" weight="0.30911064" />
       <window_info anchor="bottom" id="Spring" order="8" weight="0.329718" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.329718" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50053304" side_tool="true" weight="0.40455532" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.3394794" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5010661" side_tool="true" weight="0.4186551" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.3383948" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.329718" />
       <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="14" show_stripe_button="false" />
@@ -1043,100 +1064,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/5.0.8.RELEASE/c8c58315f925ae04ff692fed6aa3cb4ab966e43b/spring-web-5.0.8.RELEASE-sources.jar!/org/springframework/web/server/ResponseStatusException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="32" column="55" selection-start-line="32" selection-start-column="55" selection-end-line="32" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/5.0.8.RELEASE/a85fa9dfe4cb9c643ca3775279c8a1b50cd9e0b3/spring-core-5.0.8.RELEASE-sources.jar!/org/springframework/core/NestedRuntimeException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="71" column="23" selection-start-line="71" selection-start-column="23" selection-end-line="71" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#264#265#0" expanded="true" />
-            <element signature="e#326#327#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/endPoints.properties" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/configuration/AppConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/ical.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/ical/service/interfaces/Reschedule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/ical/service/interfaces/RebuildSchedule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/ical/service/interfaces/UpdateSchedule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/ical/service/interfaces/EventCancel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/EventCancelImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="51" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/RebuildScheduleImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="59" selection-start-line="4" selection-start-column="59" selection-end-line="4" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/ResheduleImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="48" selection-start-line="4" selection-start-column="48" selection-end-line="4" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/business/ical/service/interfaces/EventInvite.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -1186,16 +1113,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/mail/service/EmailSenderService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/ArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1145">
@@ -1238,13 +1155,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mnode.ical4j/ical4j/2.0.2/27d0af0203d37712c16755a19a78acc2d2071cc4/ical4j-2.0.2-sources.jar!/net/fortuna/ical4j/model/component/VEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2455">
-          <caret line="194" column="13" selection-start-line="194" selection-start-column="13" selection-end-line="194" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mnode.ical4j/ical4j/2.0.2/27d0af0203d37712c16755a19a78acc2d2071cc4/ical4j-2.0.2-sources.jar!/net/fortuna/ical4j/model/component/CalendarComponent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-952">
@@ -1270,46 +1180,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="392">
           <caret line="266" column="23" lean-forward="true" selection-start-line="266" selection-start-column="23" selection-end-line="266" selection-end-column="23" />
-          <folding>
-            <element signature="e#5230#5231#0" expanded="true" />
-            <element signature="e#5320#5321#0" expanded="true" />
-            <element signature="e#8209#8210#0" expanded="true" />
-            <element signature="e#8266#8267#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/mail/controller/EmailSenderController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="50" column="60" lean-forward="true" selection-start-line="50" selection-start-column="60" selection-end-line="50" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/mail/service/EmailSenderServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1934">
-          <caret line="128" column="66" lean-forward="true" selection-start-line="127" selection-start-column="13" selection-end-line="128" selection-end-column="66" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mnode.ical4j/ical4j/2.0.2/27d0af0203d37712c16755a19a78acc2d2071cc4/ical4j-2.0.2-sources.jar!/net/fortuna/ical4j/model/Escapable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="42" column="17" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -1345,16 +1215,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="35" column="6" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mnode.ical4j/ical4j/2.0.2/27d0af0203d37712c16755a19a78acc2d2071cc4/ical4j-2.0.2-sources.jar!/net/fortuna/ical4j/model/Property.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1410,13 +1270,176 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/CreateCalendarImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/mail/repository/MongoEmailResponseRepositoryImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="104" column="16" lean-forward="true" selection-start-line="104" selection-start-column="16" selection-end-line="104" selection-end-column="16" />
+        <state relative-caret-position="85">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/user/model/UserProfile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="37" column="19" selection-start-line="37" selection-start-column="19" selection-end-line="37" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/user/repository/MongoUserRepositoryImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/mail/model/EmailRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="53" column="30" lean-forward="true" selection-start-line="53" selection-start-column="30" selection-end-line="53" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/mail/service/EmailSenderService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1540573806443" expanded="true" signature="1521:1798" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context-support/5.0.8.RELEASE/bdc1c068399644f87fcadb42609669bb33fe16db/spring-context-support-5.0.8.RELEASE-sources.jar!/org/springframework/mail/javamail/MimeMessageHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="591" column="16" selection-start-line="591" selection-start-column="16" selection-end-line="591" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mnode.ical4j/ical4j/2.0.2/27d0af0203d37712c16755a19a78acc2d2071cc4/ical4j-2.0.2-sources.jar!/net/fortuna/ical4j/model/parameter/PartStat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-354">
+          <caret line="99" column="33" selection-start-line="99" selection-start-column="33" selection-end-line="99" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context-support/5.0.8.RELEASE/bdc1c068399644f87fcadb42609669bb33fe16db/spring-context-support-5.0.8.RELEASE-sources.jar!/org/springframework/mail/javamail/JavaMailSenderImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="530">
+          <caret line="487" selection-start-line="487" selection-end-line="487" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sun.mail/javax.mail/1.6.1/ce7825b8dafa3660bbb6d4b33f4f91fc1e93fe38/javax.mail-1.6.1-sources.jar!/javax/mail/internet/MimeBodyPart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-994">
+          <caret line="739" column="16" selection-start-line="739" selection-start-column="16" selection-end-line="739" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/io/ByteArrayOutputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="189" column="29" selection-start-line="189" selection-start-column="29" selection-end-line="189" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mnode.ical4j/ical4j/2.0.2/27d0af0203d37712c16755a19a78acc2d2071cc4/ical4j-2.0.2-sources.jar!/net/fortuna/ical4j/data/CalendarOutputter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-288">
+          <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context-support/5.0.8.RELEASE/bdc1c068399644f87fcadb42609669bb33fe16db/spring-context-support-5.0.8.RELEASE-sources.jar!/org/springframework/mail/javamail/JavaMailSender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="885">
+          <caret line="93" column="9" selection-start-line="93" selection-start-column="9" selection-end-line="93" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mnode.ical4j/ical4j/2.0.2/27d0af0203d37712c16755a19a78acc2d2071cc4/ical4j-2.0.2-sources.jar!/net/fortuna/ical4j/model/Escapable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mnode.ical4j/ical4j/2.0.2/27d0af0203d37712c16755a19a78acc2d2071cc4/ical4j-2.0.2-sources.jar!/net/fortuna/ical4j/model/Property.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-663">
+          <caret line="104" column="31" selection-start-line="104" selection-start-column="31" selection-end-line="104" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mnode.ical4j/ical4j/2.0.2/27d0af0203d37712c16755a19a78acc2d2071cc4/ical4j-2.0.2-sources.jar!/net/fortuna/ical4j/model/property/Description.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="30" column="3" lean-forward="true" selection-start-line="30" selection-start-column="3" selection-end-line="30" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/jre/lib/rt.jar!/com/sun/istack/internal/ByteArrayDataSource.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="22" column="23" lean-forward="true" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+          <folding>
+            <element signature="e#493#494#0" expanded="true" />
+            <element signature="e#543#544#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mnode.ical4j/ical4j/2.0.2/27d0af0203d37712c16755a19a78acc2d2071cc4/ical4j-2.0.2-sources.jar!/net/fortuna/ical4j/model/component/VEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="251" column="11" selection-start-line="251" selection-start-column="11" selection-end-line="251" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="9" lean-forward="true" selection-start-column="9" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/mail/service/EmailSenderServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="91" column="70" lean-forward="true" selection-start-line="91" selection-start-column="70" selection-end-line="91" selection-end-column="70" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/mail/model/EmailResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="55" column="42" selection-start-line="55" selection-start-column="42" selection-end-line="55" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/mail/controller/EmailSenderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/CreateCalendarImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="503">
+          <caret line="47" column="45" lean-forward="true" selection-start-line="47" selection-start-column="45" selection-end-line="47" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1541065853321" expanded="true" signature="1054:1414" ph="..." />
           </folding>
         </state>
       </provider>

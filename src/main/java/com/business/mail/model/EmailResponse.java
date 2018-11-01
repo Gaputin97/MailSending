@@ -10,8 +10,7 @@ public class EmailResponse {
     @Id
     private int _id;
 
-    @Email
-    private String recipientEmail;
+    private String[] recipientEmail;
 
     private String messageSubject;
 
@@ -24,7 +23,16 @@ public class EmailResponse {
     public EmailResponse() {
     }
 
-    public EmailResponse(String recipientEmail, String messageSubject, Object messageBody, String dateOfResponse,
+    public EmailResponse(int _id,  String[] recipientEmail, String messageSubject, Object messageBody, String dateOfResponse, boolean isDelivered) {
+        this._id = _id;
+        this.recipientEmail = recipientEmail;
+        this.messageSubject = messageSubject;
+        this.messageBody = messageBody;
+        this.dateOfResponse = dateOfResponse;
+        this.isDelivered = isDelivered;
+    }
+
+    public EmailResponse(String[] recipientEmail, String messageSubject, Object messageBody, String dateOfResponse,
                          Boolean isDelivered) {
         this.recipientEmail = recipientEmail;
         this.messageSubject = messageSubject;
@@ -41,11 +49,11 @@ public class EmailResponse {
         this._id = _id;
     }
 
-    public String getRecipientEmail() {
+    public String[] getRecipientEmail() {
         return recipientEmail;
     }
 
-    public void setRecipientEmail(String recipientEmail) {
+    public void setRecipientEmail(String[] recipientEmail) {
         this.recipientEmail = recipientEmail;
     }
 
