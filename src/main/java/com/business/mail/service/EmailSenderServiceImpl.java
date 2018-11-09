@@ -81,7 +81,7 @@ public class EmailSenderServiceImpl implements EmailSenderService {
             MimeBodyPart icalAttachment = new MimeBodyPart();
             icalAttachment.setHeader("Content-class", "urn:content-classes:calendarmessage");
             icalAttachment.setHeader("Content-Disposition", "attachment");
-            icalAttachment.setContent(calendar.toString(), "text/calendar");
+            icalAttachment.setContent(calendar.toString(), "text/calendar;charset=utf-8");
             icalAttachment.setFileName("icsAttachment.ics");
             multipart.addBodyPart(icalAttachment);
 
@@ -89,7 +89,7 @@ public class EmailSenderServiceImpl implements EmailSenderService {
             icalInline.setHeader("Content-class", "urn:content-classes:calendarmessage");
             icalInline.setHeader("Content-ID", "<calendar_message>");
             icalInline.setHeader("Content-Disposition", "inline");
-            icalInline.setContent(calendar.toString(), "text/calendar");
+            icalInline.setContent(calendar.toString(), "text/calendar;charset=utf-8");
             icalInline.setFileName("icalInline.ics");
             multipart.addBodyPart(icalInline);
 

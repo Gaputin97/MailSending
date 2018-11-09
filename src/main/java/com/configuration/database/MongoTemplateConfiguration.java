@@ -8,7 +8,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
-@Configuration
 @PropertySource("classpath:mongoDataBase.properties")
 public class MongoTemplateConfiguration {
     private MongoClient mongoClient(String host) {
