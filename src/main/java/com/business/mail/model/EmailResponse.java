@@ -33,7 +33,7 @@ public class EmailResponse {
     }
 
     public EmailResponse(String[] recipientEmail, String messageSubject, Object messageBody, String dateOfResponse,
-                         Boolean isDelivered) {
+                           Boolean isDelivered) {
         this.recipientEmail = recipientEmail;
         this.messageSubject = messageSubject;
         this.messageBody = messageBody;

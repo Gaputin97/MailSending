@@ -1,12 +1,11 @@
 package com.business.mail.controller;
 
+import com.business.ical.service.interfaces.RecurrenceEvent;
 import com.business.mail.model.EmailRequest;
 import com.business.mail.model.EmailResponse;
 import com.business.mail.service.EventService;
 import io.swagger.annotations.ApiOperation;
-import net.fortuna.ical4j.model.Calendar;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,54 +14,84 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "/send/event/recurrence", produces = "application/json", consumes = "application/json")
 public class RecurrenceEventController {
-    private final EventService eventService;
+    private EventService eventService;
+    private RecurrenceEvent recurrenceEvent;
 
-    private Calendar simpleEventInvite;
-
-    private Calendar simpleEventUpdate;
-
-    private Calendar simpleEventReschedule;
-
-    private Calendar simpleEventCancel;
 
     @Autowired
-    public RecurrenceEventController(EventService eventService,
-                                 @Qualifier("invite") Calendar simpleEventInvite,
-                                 @Qualifier("update") Calendar simpleEventUpdate,
-                                 @Qualifier("reschedule") Calendar simpleEventReschedule,
-                                 @Qualifier("cancel") Calendar simpleEventCancel) {
+    public RecurrenceEventController(EventService eventService, RecurrenceEvent calendar) {
         this.eventService = eventService;
-        this.simpleEventInvite = simpleEventInvite;
-        this.simpleEventUpdate = simpleEventUpdate;
-        this.simpleEventReschedule = simpleEventReschedule;
-        this.simpleEventCancel = simpleEventCancel;
+        this.recurrenceEvent = calendar;
     }
 
-    @ApiOperation(value = "Send event invite via mail message")
+    @ApiOperation(value = "Send recurrence event invite via mail message")
     @PostMapping(value = "/invite")
-    public EmailResponse sendSimpleEventInvite(@RequestBody EmailRequest emailRequest) {
+    public EmailResponse sendRecurrenceInvite(@RequestBody EmailRequest emailRequest) {
         return eventService.sendEventRequest(emailRequest.getRecipientEmail(),
-                emailRequest.getMessageSubject(), simpleEventInvite);
+                emailRequest.getMessageSubject(), recurrenceEvent.recurInvitation());
     }
 
-    @ApiOperation(value = "Send event update via mail message")
+    @ApiOperation(value = "Send recurrence event update via mail message")
     @PostMapping(value = "/update")
-    public EmailResponse sendSimpleEventUpdate(@RequestBody EmailRequest emailRequest) {
+    public EmailResponse sendRecurrenceUpdate(@RequestBody EmailRequest emailRequest) {
         return eventService.sendEventRequest(emailRequest.getRecipientEmail(),
-                emailRequest.getMessageSubject(), simpleEventUpdate);
+                emailRequest.getMessageSubject(), recurrenceEvent.recurUpdate());
     }
 
-    @ApiOperation(value = "Send event reschedule via mail message")
+    @ApiOperation(value = "Send recurrence event update via mail message")
+    @PostMapping(value = "/update/single")
+    public EmailResponse sendRecurrenceSingleUpdate(@RequestBody EmailRequest emailRequest) {
+        return eventService.sendEventRequest(emailRequest.getRecipientEmail(),
+                emailRequest.getMessageSubject(), recurrenceEvent.recurSingleUpdate());
+    }
+
+    @ApiOperation(value = "Send recurrence update for one or more events via mail message")
+    @PostMapping(value = "/update/more")
+    public EmailResponse sendRecurrenceMoreThanOneUpdate(@RequestBody EmailRequest emailRequest) {
+        return eventService.sendEventRequest(emailRequest.getRecipientEmail(),
+                emailRequest.getMessageSubject(), recurrenceEvent.recurOnePlusUpdate());
+    }
+
+    @ApiOperation(value = "Send recurrence event reschedule via mail message")
     @PostMapping(value = "/reschedule")
-    public EmailResponse sendSimpleEventReschedule(@RequestBody EmailRequest emailRequest) {
+    public EmailResponse sendRecurrenceReschedule(@RequestBody EmailRequest emailRequest) {
         return eventService.sendEventRequest(emailRequest.getRecipientEmail(),
-                emailRequest.getMessageSubject(), simpleEventReschedule);
+                emailRequest.getMessageSubject(), recurrenceEvent.recurReschedule());
     }
 
-    @ApiOperation(value = "Send event cancel via mail message")
-    @PostMapping(value = "/cancel")
-    public EmailResponse sendSimpleEventCancel(@RequestBody EmailRequest emailRequest) {
-        return eventService.sendEventCancel(emailRequest.getRecipientEmail(),
-                emailRequest.getMessageSubject(), simpleEventCancel);
+    @ApiOperation(value = "Send recurrence event reschedule via mail message")
+    @PostMapping(value = "/reschedule/single")
+    public EmailResponse sendRecurrenceSingleReschedule(@RequestBody EmailRequest emailRequest) {
+        return eventService.sendEventRequest(emailRequest.getRecipientEmail(),
+                emailRequest.getMessageSubject(), recurrenceEvent.recurSingleReschedule());
     }
+
+    @ApiOperation(value = "Send recurrence single event reschedule via mail message")
+    @PostMapping(value = "/reschedule/more")
+    public EmailResponse sendRecurrenceMoreThanOneReschedule(@RequestBody EmailRequest emailRequest) {
+        return eventService.sendEventRequest(emailRequest.getRecipientEmail(),
+                emailRequest.getMessageSubject(), recurrenceEvent.recurOnePlusReschedule());
+    }
+
+    @ApiOperation(value = "Send recurrence more than one event cancel via mail message")
+    @PostMapping(value = "/cancel")
+    public EmailResponse sendRecurrenceCancel(@RequestBody EmailRequest emailRequest) {
+        return eventService.sendEventCancel(emailRequest.getRecipientEmail(),
+                emailRequest.getMessageSubject(), recurrenceEvent.recurCancel());
+    }
+
+    @ApiOperation(value = "Send recurrence single event cancel via mail message")
+    @PostMapping(value = "/cancel/single")
+    public EmailResponse sendRecurrenceSingleCancel(@RequestBody EmailRequest emailRequest) {
+        return eventService.sendEventCancel(emailRequest.getRecipientEmail(),
+                emailRequest.getMessageSubject(), recurrenceEvent.recurSingleCancel());
+    }
+
+    @ApiOperation(value = "Send recurrence more than one event cancel via mail message")
+    @PostMapping(value = "/cancel/more")
+    public EmailResponse sendRecurrenceMoreThanOneCancel(@RequestBody EmailRequest emailRequest) {
+        return eventService.sendEventCancel(emailRequest.getRecipientEmail(),
+                emailRequest.getMessageSubject(), recurrenceEvent.recurOnePlusCancel());
+    }
+
 }
