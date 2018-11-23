@@ -57,8 +57,6 @@ public class RecurrenceEventImpl implements RecurrenceEvent {
             e.printStackTrace();
         }
 
-
-
         event.getProperties().add(Transp.OPAQUE);
         PropertyList<Property> eventProperties = getEventProperties();
         event.getProperties().addAll(eventProperties);

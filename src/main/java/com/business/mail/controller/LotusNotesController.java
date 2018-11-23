@@ -1,7 +1,6 @@
 package com.business.mail.controller;
 
 
-import com.business.ical.service.implementation.LotusNotesImpl;
 import com.business.ical.service.interfaces.LotusNotes;
 import com.business.mail.model.EmailRequest;
 import com.business.mail.model.EmailResponse;

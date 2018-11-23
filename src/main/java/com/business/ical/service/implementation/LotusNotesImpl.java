@@ -2,13 +2,17 @@ package com.business.ical.service.implementation;
 
 import com.business.ical.service.interfaces.LotusNotes;
 import net.fortuna.ical4j.model.*;
+import net.fortuna.ical4j.model.component.VEvent;
 import net.fortuna.ical4j.model.parameter.*;
 import net.fortuna.ical4j.model.property.*;
+import net.fortuna.ical4j.util.FixedUidGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import java.net.SocketException;
 import java.net.URISyntaxException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -17,56 +21,166 @@ import java.util.List;
 public class LotusNotesImpl implements LotusNotes {
     private static final Logger logger = LoggerFactory.getLogger(EventWithHtmlImpl.class);
     private Uid UID;
-    private final String HTML_STRING = "<html>\n" +
-            "   <head>\n" +
-            "      <title>Simple One Column Layout</title>\n" +
-            "      <meta charset=\"utf-8\" />\n" +
-            "      <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n" +
-            "      <style>html, body, div, p, ul, ol, li, h1, h2, h3, h4, h5, h6 {margin: 0;padding: 0;}body {font-size:10px;line-height:10px;}@media all and (max-width: 599px) {.container600 {width: 100%;}}</style>\n" +
-            "   </head>\n" +
-            "   <body style=\"background-color:#F4F4F4;\">\n" +
-            "      <div style=\"background-color:#F4F4F4;\"><div style=\"width:600px;margin:0 auto;\"><div style=\"padding: 10px;\"><div style=\"padding:30px; background-color:#FFFFFF;color:#58585A;\"><img alt=\"\" src=\"https://edmdesigner.github.io/modern-html-email-tutorial/lesson03/step-00/img/logo.png\" style=\"display:block;width:210px\"/></div>\n" +
-            "      <div style=\"padding:30px; background-color:#F8F7F0;color:#58585A;\">\n" +
-            "      <h1 style=\"font-size:28px;line-height:32px;margin-bottom:24px;\">Confirm Registration</h1>\n" +
-            "      <p style=\"font-size:16px;line-height:20px;font-family: Georgia, Arial, sans-serif;\">But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.</p><a href=\"http://edmdesigner.com\" style=\"display:block;color:#58585A;font-size:16px;line-height:20px;font-family:Georgia,Arial,sans-serif; text-align:center;padding-top:30px;padding-bottom:30px;\">Confirm</a></div><div style=\"padding:30px; background-color:#58585A;color:#FFFFFF;\"><p style=\"font-size:16px;line-height:20px;font-family: Georgia, Arial, sans-serif; text-align: center;\">2017 @ COPYRIGHT - EDMDESIGNER</p></div></div></div></div>\n" +
-            "   </body>\n" +
-            "</html>";
 
-    public String createLotusNotesCalendar() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("BEGIN:VCALENDAR\n");
-        stringBuilder.append("VERSION:2.0\n");
-        stringBuilder.append("PRODID:-//Microsoft Corporation//EN\n");
-        stringBuilder.append("CALSCALE:GREGORIAN\n");
-        stringBuilder.append("METHOD:REQUEST\n");
-        stringBuilder.append("BEGIN:VEVENT\n");
-        stringBuilder.append("ATTENDEE;CN=UHaputsin@ibagroup.eu;RSVP=TRUE:mailto:UHaputsin@ibagroup.eu\n");
-        stringBuilder.append("DESCRIPTION:Project XYZ\n");
-        stringBuilder.append("DTSTAMP:20181122T120000Z\n");
-        stringBuilder.append("DTSTART:20181123T132000Z\n");
-        stringBuilder.append("DTEND:20181123T152000Z\n");
-        stringBuilder.append("ORGANIZER;CN=\"Usevalad Haputsin\":mailto:gaputinsevaiba@gmail.com\n");
-        stringBuilder.append("SEQUENCE:0\n");
-        stringBuilder.append("SUMMARY:Some summary\n");
-        stringBuilder.append("TRANSP:OPAQUE\n");
-        stringBuilder.append("UID:3421421442\n");
-        stringBuilder.append("X-ALT-DESC;FMTTYPE=text/html:\t<html> <head> <title>Playing with Inline Styles</title> </head> <body> <p style=\"color:blue;font-size:46px;\"> I'm a big, blue, <strong>strong</strong> paragraph </p> </body></html>\n");
-        stringBuilder.append("END:VEVENT\n");
-        stringBuilder.append("END:VCALENDAR\n");
+    FixedUidGenerator fixedUidGenerator;
 
-        String icsString = stringBuilder.toString();
 
-        return icsString;
+    @Override
+    public Calendar createLotusNotesCalendar() {
+        try {
+            fixedUidGenerator = new FixedUidGenerator("UHaputsin");
+        } catch (SocketException e) {
+            e.printStackTrace();
+        }
+        net.fortuna.ical4j.model.Calendar complexEventCancel = new net.fortuna.ical4j.model.Calendar();
+        complexEventCancel.getProperties().add(Version.VERSION_2_0);
+        complexEventCancel.getProperties().add(CalScale.GREGORIAN);
+        complexEventCancel.getProperties().add(new ProdId("-//Event Central//EN"));
+        complexEventCancel.getProperties().add(Method.REQUEST);
+        //***************************************************************************************************
+        DateTime eventStartDateTime1 = null;
+        DateTime eventEndDateTime1 = null;
+        try {
+            eventStartDateTime1 = new DateTime("20181125T190000Z");
+            eventEndDateTime1 = new DateTime("20181125T203700Z");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        VEvent event1 = new VEvent(eventStartDateTime1, eventEndDateTime1, "First Shadow VEvent");
+        event1.getProperties().add(Transp.OPAQUE);
+        try {
+            event1.getProperties().addAll(getAttendeeList());
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+        ParameterList list = new ParameterList();
+        PeriodList periods = new PeriodList();
+        try {
+            periods.add(new Period(new DateTime("20181127T150000Z"), new DateTime("20181127T172100Z")));
+            periods.add(new Period(new DateTime("20181130T083000Z"), new DateTime("20181130T120500Z")));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        list.add(Value.PERIOD);
+        RDate rDate = new RDate(list, periods);
+        event1.getProperties().add(rDate);
+
+        event1.getProperties().add(new Sequence("0"));
+        event1.getProperties().add(new Description("Invite description for the first event"));
+        event1.getProperties().add(new Location("London"));
+        UID = fixedUidGenerator.generateUid();
+        event1.getProperties().add(UID);
+        try {
+            event1.getProperties().add(new Organizer("mailto:gaputinseva@gmail.com"));
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+//        PropertyList<Property> eventProperties1 = getEventProperties();
+//        event1.getProperties().addAll(eventProperties1);
+//
+//        XProperty lotusNotesType1 = new XProperty("X-LOTUS-NOTICETYPE", "I");
+//        event1.getProperties().add(lotusNotesType1);
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        //***************************************************************************************************
+        DateTime eventStartDateTime2 = null;
+        DateTime eventEndDateTime2 = null;
+        try {
+            eventStartDateTime2 = new DateTime("20181127T150000Z");
+            eventEndDateTime2 = new DateTime("20181127T172100Z");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        VEvent event2 = new VEvent(eventStartDateTime2, eventEndDateTime2, "Invite Summary - 1");
+        event2.getProperties().add(Transp.OPAQUE);
+        try {
+            event2.getProperties().addAll(getAttendeeList());
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+        event2.getProperties().add(new Sequence("1"));
+        event2.getProperties().add(new Description("Invite decs 1"));
+        event2.getProperties().add(UID);
+        try {
+            event2.getProperties().add(new Organizer("mailto:gaputinseva@gmail.com"));
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+//        PropertyList<Property> eventProperties2 = getEventProperties();
+//        event2.getProperties().addAll(eventProperties2);
+
+//        XProperty updateLotus2 = new XProperty("X-LOTUS-UPDATE-SEQ",  "1");
+//        event2.getProperties().add(updateLotus2);
+//        XProperty lotusNotesType2 = new XProperty("X-LOTUS-NOTICETYPE", "U");
+//        event2.getProperties().add(lotusNotesType2);
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        //***************************************************************************************************
+        DateTime eventStartDateTime3 = null;
+        DateTime eventEndDateTime3 = null;
+        try {
+            eventStartDateTime3 = new DateTime("20181130T083000Z");
+            eventEndDateTime3 = new DateTime("20181130T120500Z");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        VEvent event3 = new VEvent(eventStartDateTime3, eventEndDateTime3, "Invite Summary - 2");
+        event3.getProperties().add(Transp.OPAQUE);
+        try {
+            event3.getProperties().addAll(getAttendeeList());
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+        event3.getProperties().add(new Sequence("1"));
+        event3.getProperties().add(new Description("Invite decs 1"));
+        event3.getProperties().add(UID);
+        try {
+            event3.getProperties().add(new Organizer("mailto:gaputinseva@gmail.com"));
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+//        PropertyList<Property> eventProperties3 = getEventProperties();
+//        event3.getProperties().addAll(eventProperties3);
+
+//        XProperty updateLotus3 = new XProperty("X-LOTUS-UPDATE-SEQ",  "2");
+//        event3.getProperties().add(updateLotus3);
+//        XProperty lotusNotesType3 = new XProperty("X-LOTUS-NOTICETYPE", "U");
+//        event3.getProperties().add(lotusNotesType3);
+        //***************************************************************************************************
+        complexEventCancel.getComponents().add(event1);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        complexEventCancel.getComponents().add(event2);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        complexEventCancel.getComponents().add(event3);
+
+        complexEventCancel.validate();
+        logger.info("\nCalendar: \n" + complexEventCancel.toString());
+
+        return complexEventCancel;
     }
 
     private PropertyList<Property> getEventProperties() {
         PropertyList<Property> propertyList = new PropertyList<>();
 
-        Location locationProperty = new Location("Conference room A103");
-
-        XProperty altDesc = new XProperty("X-ALT-DESC");
-        altDesc.getParameters().add(new FmtType("text/html"));
-        altDesc.setValue(HTML_STRING);
         XProperty lotusBroadcast = new XProperty("X-LOTUS-BROADCAST", "TRUE");
         XProperty lotusPreventCounter = new XProperty("X-LOTUS-PREVENTCOUNTER", "FALSE");
         XProperty microsoftDisallowCounter = new XProperty("X-MICROSOFT-DISALLOW-COUNTER", "TRUE");
@@ -76,11 +190,10 @@ public class LotusNotesImpl implements LotusNotes {
         XProperty lotusPreventDelegation = new XProperty("X-LOTUS-PREVENTDELEGATION", "TRUE");
         XProperty lotusVersion = new XProperty("X-LOTUS-NOTESVERSION", "2");
         XProperty lotusAppType = new XProperty("X-LOTUS-APPTTYPE", "3");
-        XProperty updateLotus = new XProperty("X-LOTUS-UPDATE-SEQ",  "1");
 
-        propertyList.addAll(Arrays.asList(/*altDesc,*/locationProperty, lotusPreventDelegation,
+        propertyList.addAll(Arrays.asList(lotusPreventDelegation,
                 microsoftDisallowCounter, lotusVersion, lotusAppType, lotusBroadcast,
-                lotusPreventCounter, lotusUtf8, outlookForceOpen, msAttachment, updateLotus));
+                lotusPreventCounter, lotusUtf8, outlookForceOpen, msAttachment));
         return propertyList;
     }
 
