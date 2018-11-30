@@ -43,14 +43,7 @@ public class EventServiceImpl implements EventService {
             helper.setTo(to);
             helper.setSubject(subject);
 
-            MimeMultipart multipart = new MimeMultipart();
-
-            MimeBodyPart icalAttachment = new MimeBodyPart();
-            icalAttachment.setHeader("Content-class", "urn:content-classes:calendarmessage");
-            icalAttachment.setHeader("Content-Disposition", "attachment");
-            icalAttachment.setContent(calendar.toString(), "text/calendar;charset=utf-8;method=REQUEST");
-            icalAttachment.setFileName("icsAttachment.ics");
-            multipart.addBodyPart(icalAttachment);
+            MimeMultipart multipart = new MimeMultipart("mixed");
 
             MimeBodyPart icalInline = new MimeBodyPart();
             icalInline.setHeader("Content-class", "urn:content-classes:calendarmessage");
@@ -59,6 +52,14 @@ public class EventServiceImpl implements EventService {
             icalInline.setContent(calendar.toString(), "text/calendar;charset=utf-8;method=REQUEST");
             icalInline.setFileName("icalInline.ics");
             multipart.addBodyPart(icalInline);
+
+            MimeBodyPart icalAttachment = new MimeBodyPart();
+            icalAttachment.setHeader("Content-class", "urn:content-classes:calendarmessage");
+            icalAttachment.setHeader("Content-Disposition", "attachment");
+            icalAttachment.setContent(calendar.toString(), "text/calendar;charset=utf-8;method=REQUEST");
+            icalAttachment.setFileName("icsAttachment.ics");
+            multipart.addBodyPart(icalAttachment);
+
 
             message.setContent(multipart);
 
@@ -86,7 +87,7 @@ public class EventServiceImpl implements EventService {
             helper.setTo(to);
             helper.setSubject(subject);
 
-            MimeMultipart multipart = new MimeMultipart();
+            MimeMultipart multipart = new MimeMultipart("mixed");
 
             MimeBodyPart icalAttachment = new MimeBodyPart();
             icalAttachment.setHeader("Content-class", "urn:content-classes:calendarmessage");
@@ -106,8 +107,9 @@ public class EventServiceImpl implements EventService {
             MimeBodyPart htmlInline = new MimeBodyPart();
             htmlInline.setHeader("Content-ID", "<html-with-cid>");
             htmlInline.setHeader("Content-Disposition", "inline");
+            htmlInline.setHeader("Content-Transfer-Encoding", "quoted-printable");
             htmlInline.setContent(HTML_STRING, "text/html; charset=UTF-8");
-//            multipart.addBodyPart(htmlInline);
+            multipart.addBodyPart(htmlInline);
 
             MimeBodyPart inlineImage = new MimeBodyPart();
             inlineImage.setHeader("Content-ID", "<inline-image>");

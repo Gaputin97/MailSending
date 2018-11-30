@@ -25,7 +25,6 @@ public class ComplexEventsImpl implements ComplexEvents {
 
     @Override
     public Calendar complexEventInvite() {
-
         Calendar complexEventInvitation = new Calendar();
         complexEventInvitation.getProperties().add(Version.VERSION_2_0);
         complexEventInvitation.getProperties().add(CalScale.GREGORIAN);

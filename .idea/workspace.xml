@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e473e040-17a1-4f05-8f2d-3bca1528311b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/LotusNotesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/LotusNotesImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/RecurrenceEventImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/RecurrenceEventImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/business/ical/service/interfaces/LotusNotes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/business/ical/service/interfaces/LotusNotes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/business/mail/controller/LotusNotesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/business/mail/controller/LotusNotesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/ComplexEventsImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/ComplexEventsImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/EventWithHtmlImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/EventWithHtmlImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/LotusNotesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/ComplexUpdatesImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/business/ical/service/interfaces/LotusNotes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/business/ical/service/interfaces/ComplexUpdates.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/business/mail/controller/LotusNotesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/business/mail/controller/ComplexUpdatesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/business/mail/service/EventServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/business/mail/service/EventServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/configuration/interceptor/ApplicationInterceptorConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/configuration/interceptor/ApplicationInterceptorConfiguration.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -53,24 +57,26 @@
     <session id="-1940576757">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="38" />
+          <entry key="project.closed" value="42" />
           <entry key="project.open.time.0" value="15" />
           <entry key="project.open.time.1" value="3" />
           <entry key="project.open.time.10" value="1" />
-          <entry key="project.open.time.22" value="1" />
-          <entry key="project.open.time.23" value="1" />
-          <entry key="project.open.time.24" value="2" />
+          <entry key="project.open.time.18" value="1" />
+          <entry key="project.open.time.22" value="2" />
+          <entry key="project.open.time.23" value="2" />
+          <entry key="project.open.time.24" value="3" />
           <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.26" value="1" />
-          <entry key="project.open.time.28" value="1" />
+          <entry key="project.open.time.28" value="2" />
           <entry key="project.open.time.29" value="1" />
-          <entry key="project.open.time.32" value="3" />
+          <entry key="project.open.time.31" value="1" />
+          <entry key="project.open.time.32" value="4" />
           <entry key="project.open.time.36" value="1" />
           <entry key="project.open.time.39" value="1" />
           <entry key="project.open.time.41" value="1" />
           <entry key="project.open.time.5" value="8" />
-          <entry key="project.open.time.6" value="2" />
-          <entry key="project.opened" value="44" />
+          <entry key="project.open.time.6" value="3" />
+          <entry key="project.opened" value="52" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -80,7 +86,7 @@
           <entry key="groovy" value="6" />
           <entry key="htm" value="1" />
           <entry key="html" value="1" />
-          <entry key="java" value="1060" />
+          <entry key="java" value="1115" />
           <entry key="png" value="1" />
           <entry key="properties" value="26" />
         </counts>
@@ -91,16 +97,16 @@
           <entry key="Groovy" value="21" />
           <entry key="HTML" value="2" />
           <entry key="Image" value="1" />
-          <entry key="JAVA" value="1060" />
+          <entry key="JAVA" value="1115" />
           <entry key="Properties" value="26" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="754" />
+          <entry key="dummy" value="847" />
           <entry key="gradle" value="31" />
           <entry key="html" value="20" />
-          <entry key="java" value="51475" />
+          <entry key="java" value="53625" />
           <entry key="properties" value="827" />
           <entry key="yml" value="68" />
         </counts>
@@ -109,8 +115,8 @@
         <counts>
           <entry key="Groovy" value="31" />
           <entry key="HTML" value="20" />
-          <entry key="JAVA" value="51475" />
-          <entry key="PLAIN_TEXT" value="754" />
+          <entry key="JAVA" value="53625" />
+          <entry key="PLAIN_TEXT" value="847" />
           <entry key="Properties" value="827" />
           <entry key="YAML" value="68" />
         </counts>
@@ -129,13 +135,49 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/LotusNotesImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/ComplexUpdatesImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="81" column="31" lean-forward="true" selection-start-line="81" selection-start-column="31" selection-end-line="81" selection-end-column="31" />
+            <state relative-caret-position="143">
+              <caret line="333" column="50" selection-start-line="333" selection-start-column="50" selection-end-line="333" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1542986076788" expanded="true" signature="4689:4819" ph="..." />
+                <marker date="1543592082839" expanded="true" signature="2409:2539" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mnode.ical4j/ical4j/2.2.0/2b030eee9dad2a6b83d428351af20f1954fe63d5/ical4j-2.2.0-sources.jar!/net/fortuna/ical4j/model/property/ExDate.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="273">
+              <caret line="76" column="26" selection-start-line="76" selection-start-column="26" selection-end-line="76" selection-end-column="26" />
+              <folding>
+                <element signature="e#2217#2218#0" expanded="true" />
+                <element signature="e#2261#2262#0" expanded="true" />
+                <element signature="e#2776#2777#0" expanded="true" />
+                <element signature="e#2827#2828#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mnode.ical4j/ical4j/2.2.0/2b030eee9dad2a6b83d428351af20f1954fe63d5/ical4j-2.2.0-sources.jar!/net/fortuna/ical4j/model/DateList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="48" column="13" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/business/mail/controller/ComplexUpdatesController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="545">
+              <caret line="39" column="65" selection-start-line="39" selection-start-column="65" selection-end-line="39" selection-end-column="65" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -174,6 +216,8 @@
       <find>throws ParseException, SocketException, URISyntaxException</find>
       <find>getAttende</find>
       <find>\\</find>
+      <find>Orga</find>
+      <find>UID:20181130T145839Z-UHaputsin@HAPUTSIN-UD.iba</find>
     </findStrings>
     <replaceStrings>
       <replace>PostMapping</replace>
@@ -559,12 +603,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/business/user/service/security/AuthenticationService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/business/ical/service/EventCanceling.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/business/ical/service/EventCancelingImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/business/ical/service/CreateCalendar.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/CreateCalendar.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/EventCancelingImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/business/ical/service/interfaces/UpdateSchedule.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/EventCancelImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/EventInviteImpl.java" />
@@ -574,7 +612,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/business/mail/model/EmailRequest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/configuration/swagger/SwaggerConfiguration.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/configuration/rest/RestTemplateConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/configuration/interceptor/ApplicationInterceptorConfiguration.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/configuration/database/MongoTemplateConfiguration.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/business/ical/service/interfaces/CreateCalendar.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/CreateCalendarImpl.java" />
@@ -594,7 +631,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/business/ical/service/interfaces/SimpleEvent.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/SimpleEventImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/business/mail/controller/ComplexEventController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/ComplexEventsImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/business/mail/controller/EventWithHtml.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/business/mail/controller/SimpleEventController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/business/mail/controller/RecurrenceEventController.java" />
@@ -604,12 +640,20 @@
         <option value="$PROJECT_DIR$/src/main/java/com/business/mail/model/EmailResponse.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/business/mail/service/EventService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/business/mail/service/EventServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/EventWithHtmlImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/RecurrenceEventImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/business/ical/service/interfaces/LotusNotes.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/business/mail/controller/LotusNotesController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/LotusNotesImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/ComplexEventsImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/EventWithHtmlImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/business/mail/service/EventServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/configuration/interceptor/ApplicationInterceptorConfiguration.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/business/mail/controller/ControllerForDocker.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/business/ical/service/interfaces/LotusNotes.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/ComplexRecurImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/business/ical/service/interfaces/ComplexRecur.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/business/ical/service/interfaces/ComplexUpdates.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/business/mail/controller/ComplexUpdatesController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/ComplexUpdatesImpl.java" />
       </list>
     </option>
   </component>
@@ -620,6 +664,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="974" />
     <option name="height" value="728" />
   </component>
@@ -631,8 +677,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -748,7 +792,100 @@
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="business" type="462c0819:PsiDirectoryNode" />
               <item name="mail" type="462c0819:PsiDirectoryNode" />
+              <item name="repository" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mailsend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mailsend" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="business" type="462c0819:PsiDirectoryNode" />
+              <item name="mail" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mailsend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mailsend" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="business" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mailsend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mailsend" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="business" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+              <item name="interceptor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mailsend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mailsend" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="business" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mailsend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mailsend" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="business" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+              <item name="repository" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mailsend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mailsend" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="configuration" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mailsend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mailsend" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="configuration" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mailsend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mailsend" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="configuration" type="462c0819:PsiDirectoryNode" />
+              <item name="interceptor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mailsend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mailsend" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="configuration" type="462c0819:PsiDirectoryNode" />
+              <item name="mail" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mailsend" type="b2602c69:ProjectViewProjectNode" />
@@ -761,6 +898,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -775,7 +914,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/HaputsinU/IdeaProjects/mailsend/src/main/java/com/business/mail/model/EmailRequest.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542986085976" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543514412146" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -783,7 +922,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+    <property name="settings.editor.selected.configurable" value="preferences.applicationServers" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -877,9 +1016,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.Application (1)" />
-        <item itemvalue="Spring Boot.Application (1)" />
-        <item itemvalue="Spring Boot.Application (1)" />
         <item itemvalue="Spring Boot.Application" />
+        <item itemvalue="Spring Boot.Application (1)" />
+        <item itemvalue="Spring Boot.Application (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -936,11 +1075,19 @@
       <workItem from="1542096375859" duration="76268000" />
       <workItem from="1542609965611" duration="35000000" />
       <workItem from="1542790089860" duration="43794000" />
+      <workItem from="1543221109086" duration="7643000" />
+      <workItem from="1543243539032" duration="1198000" />
+      <workItem from="1543322145523" duration="918000" />
+      <workItem from="1543329672155" duration="846000" />
+      <workItem from="1543330536927" duration="1054000" />
+      <workItem from="1543487486694" duration="13295000" />
+      <workItem from="1543514965643" duration="5090000" />
+      <workItem from="1543578925143" duration="5780000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="509240000" />
+    <option name="totallyTimeSpent" value="545064000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -954,12 +1101,12 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4967462" visible="true" weight="0.32995737" />
-      <window_info id="Structure" order="1" sideWeight="0.5032538" side_tool="true" weight="0.18656716" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49567366" visible="true" weight="0.077292114" />
+      <window_info id="Structure" order="1" sideWeight="0.50432634" side_tool="true" weight="0.3651386" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="UI Designer" order="4" />
-      <window_info id="Favorites" order="5" sideWeight="0.5040917" side_tool="true" weight="0.20895523" />
+      <window_info id="Favorites" order="5" sideWeight="0.50432634" side_tool="true" weight="0.3651386" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Web" order="7" sideWeight="0.5021692" side_tool="true" weight="0.21748401" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -970,14 +1117,14 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.329718" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.30911064" />
-      <window_info anchor="bottom" id="Spring" order="8" weight="0.061822128" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.329718" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5010661" side_tool="true" weight="0.4186551" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.16160521" />
+      <window_info anchor="bottom" id="Spring" order="8" weight="0.2635575" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4989339" weight="0.12255965" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5010661" side_tool="true" weight="0.2537961" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.35140997" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.329718" />
       <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="14" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" x="2" y="537" width="1876" height="411" id="Run Dashboard" order="15" visible="true" weight="0.345987" />
+      <window_info active="true" anchor="bottom" x="2" y="537" width="1876" height="411" id="Run Dashboard" order="15" visible="true" weight="0.5010846" />
       <window_info anchor="bottom" id="Thumbnails" order="16" weight="0.329718" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -988,7 +1135,7 @@
       <window_info anchor="right" id="Database" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info anchor="right" id="Gradle" order="9" visible="true" weight="0.0" />
+      <window_info anchor="right" id="Gradle" order="9" weight="0.32995737" />
       <window_info anchor="right" id="Bean Validation" order="10" weight="0.32995737" />
     </layout>
     <layout-to-restore>
@@ -1057,118 +1204,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/5.0.8.RELEASE/c8c58315f925ae04ff692fed6aa3cb4ab966e43b/spring-web-5.0.8.RELEASE-sources.jar!/org/springframework/web/filter/RequestContextFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="107" selection-start-line="107" selection-end-line="107" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/5.0.8.RELEASE/c8c58315f925ae04ff692fed6aa3cb4ab966e43b/spring-web-5.0.8.RELEASE-sources.jar!/org/springframework/web/filter/HttpPutFormContentFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="109" selection-start-line="109" selection-end-line="109" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/5.0.8.RELEASE/c8c58315f925ae04ff692fed6aa3cb4ab966e43b/spring-web-5.0.8.RELEASE-sources.jar!/org/springframework/web/filter/HiddenHttpMethodFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="93" selection-start-line="93" selection-end-line="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/5.0.8.RELEASE/c8c58315f925ae04ff692fed6aa3cb4ab966e43b/spring-web-5.0.8.RELEASE-sources.jar!/org/springframework/web/filter/CharacterEncodingFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="200" selection-start-line="200" selection-end-line="200" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/5.0.8.RELEASE/c8c58315f925ae04ff692fed6aa3cb4ab966e43b/spring-web-5.0.8.RELEASE-sources.jar!/org/springframework/web/filter/OncePerRequestFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="113" selection-start-line="113" selection-end-line="113" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.tomcat.embed/tomcat-embed-core/8.5.32/542325872693cc57f59f65138da82b5eee5099f7/tomcat-embed-core-8.5.32-sources.jar!/org/apache/catalina/core/ApplicationFilterChain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="167" selection-start-line="167" selection-end-line="167" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.tomcat.embed/tomcat-embed-core/8.5.32/542325872693cc57f59f65138da82b5eee5099f7/tomcat-embed-core-8.5.32-sources.jar!/org/apache/catalina/core/StandardWrapperValve.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="294" selection-start-line="294" selection-end-line="294" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.tomcat.embed/tomcat-embed-core/8.5.32/542325872693cc57f59f65138da82b5eee5099f7/tomcat-embed-core-8.5.32-sources.jar!/org/apache/catalina/core/StandardContextValve.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="96" selection-start-line="96" selection-end-line="96" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.tomcat.embed/tomcat-embed-core/8.5.32/542325872693cc57f59f65138da82b5eee5099f7/tomcat-embed-core-8.5.32-sources.jar!/org/apache/coyote/AbstractProcessorLight.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="90" selection-start-line="90" selection-end-line="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.tomcat.embed/tomcat-embed-core/8.5.32/542325872693cc57f59f65138da82b5eee5099f7/tomcat-embed-core-8.5.32-sources.jar!/org/apache/coyote/AbstractProtocol.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="943" selection-start-line="943" selection-end-line="943" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.tomcat.embed/tomcat-embed-core/8.5.32/542325872693cc57f59f65138da82b5eee5099f7/tomcat-embed-core-8.5.32-sources.jar!/org/apache/tomcat/util/net/NioEndpoint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="1497" selection-start-line="1497" selection-end-line="1497" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.tomcat.embed/tomcat-embed-core/8.5.32/542325872693cc57f59f65138da82b5eee5099f7/tomcat-embed-core-8.5.32-sources.jar!/org/apache/tomcat/util/net/SocketProcessorBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="50" selection-start-line="50" selection-end-line="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.tomcat.embed/tomcat-embed-core/8.5.32/542325872693cc57f59f65138da82b5eee5099f7/tomcat-embed-core-8.5.32-sources.jar!/org/apache/coyote/http11/Http11Processor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="885" selection-start-line="885" selection-end-line="885" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.tomcat.embed/tomcat-embed-core/8.5.32/542325872693cc57f59f65138da82b5eee5099f7/tomcat-embed-core-8.5.32-sources.jar!/org/apache/catalina/connector/CoyoteAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="413" selection-start-line="413" selection-end-line="413" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.tomcat.embed/tomcat-embed-core/8.5.32/542325872693cc57f59f65138da82b5eee5099f7/tomcat-embed-core-8.5.32-sources.jar!/org/apache/catalina/core/StandardEngineValve.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="606">
-          <caret line="88" selection-start-line="88" selection-end-line="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.tomcat.embed/tomcat-embed-core/8.5.32/542325872693cc57f59f65138da82b5eee5099f7/tomcat-embed-core-8.5.32-sources.jar!/org/apache/catalina/valves/ErrorReportValve.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="96" selection-start-line="96" selection-end-line="96" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.tomcat.embed/tomcat-embed-core/8.5.32/542325872693cc57f59f65138da82b5eee5099f7/tomcat-embed-core-8.5.32-sources.jar!/org/apache/catalina/core/StandardHostValve.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="296">
@@ -1222,10 +1257,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="281">
           <caret line="62" column="11" selection-start-line="62" selection-start-column="11" selection-end-line="62" selection-end-column="11" />
-          <folding>
-            <element signature="e#2403#2404#0" expanded="true" />
-            <element signature="e#2473#2474#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1233,16 +1264,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="337" column="16" selection-start-line="337" selection-start-column="16" selection-end-line="337" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/mail/controller/ComplexEventController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="37" column="71" selection-start-line="37" selection-start-column="71" selection-end-line="37" selection-end-column="71" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1260,23 +1281,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/ical/service/interfaces/RecurrenceEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="38" lean-forward="true" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/SimpleEventImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mnode.ical4j/ical4j/2.2.0/2b030eee9dad2a6b83d428351af20f1954fe63d5/ical4j-2.2.0-sources.jar!/net/fortuna/ical4j/model/property/Priority.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="213">
@@ -1291,103 +1295,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mnode.ical4j/ical4j/2.2.0/2b030eee9dad2a6b83d428351af20f1954fe63d5/ical4j-2.2.0-sources.jar!/net/fortuna/ical4j/model/parameter/AltRep.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="61" column="38" selection-start-line="61" selection-start-column="38" selection-end-line="61" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/mail/controller/RecurrenceEventController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="5" lean-forward="true" selection-start-line="28" selection-start-column="4" selection-end-line="31" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-          <folding>
-            <marker date="1542899948637" expanded="true" signature="107:167" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/mail/model/EmailResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/mail/model/EmailRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/ical/service/interfaces/EventWithHtml.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/mail/controller/EventWithHtmlController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="31" lean-forward="true" selection-start-column="31" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/mail/service/EventService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/mail/service/EventServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="1768" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/ComplexEventsImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="693">
-          <caret line="284" column="34" lean-forward="true" selection-start-line="200" selection-start-column="8" selection-end-line="284" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1542722662832" expanded="true" signature="6125:6177" ph="..." />
-            <marker date="1542722662832" expanded="true" signature="7640:7655" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/EventWithHtmlImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="65" column="401" selection-start-line="65" selection-start-column="401" selection-end-line="65" selection-end-column="401" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1405,13 +1316,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/ical/service/interfaces/LotusNotes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/business/ical/service/interfaces/ComplexEvents.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -1426,33 +1330,231 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/mail/controller/LotusNotesController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/ical/service/interfaces/EventWithHtml.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sun.mail/javax.mail/1.6.1/ce7825b8dafa3660bbb6d4b33f4f91fc1e93fe38/javax.mail-1.6.1-sources.jar!/javax/mail/internet/MimeMultipart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="191" column="11" selection-start-line="191" selection-start-column="11" selection-end-line="191" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mnode.ical4j/ical4j/2.2.0/2b030eee9dad2a6b83d428351af20f1954fe63d5/ical4j-2.2.0-sources.jar!/net/fortuna/ical4j/model/parameter/AltRep.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="60" column="11" selection-start-line="60" selection-start-column="11" selection-end-line="60" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/mail/model/EmailRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/mail/controller/EventWithHtmlController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-mongodb/2.0.9.RELEASE/2d0489f729a3b14393b1a9b795fa3b3f7a9c7378/spring-data-mongodb-2.0.9.RELEASE-sources.jar!/org/springframework/data/mongodb/core/MongoTemplate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="172" selection-start-line="172" selection-end-line="172" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/mail/repository/MongoEmailResponseRepositoryImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/configuration/interceptor/ApplicationInterceptorConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" column="93" selection-start-line="19" selection-start-column="93" selection-end-line="19" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/user/interceptor/BasicSecurityAuthenticationInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/mail/model/EmailResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/user/repository/MongoUserRepositoryImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/user/model/UserProfile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/configuration/database/MongoTemplateConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/user/repository/MongoUserRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/mail/controller/ControllerForDocker.java" />
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/5.0.8.RELEASE/c8c58315f925ae04ff692fed6aa3cb4ab966e43b/spring-web-5.0.8.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="217" selection-start-line="217" selection-end-line="217" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/EventWithHtmlImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="77" column="25" selection-start-line="77" selection-start-column="8" selection-end-line="77" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/user/service/security/AuthenticationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="42" column="81" selection-start-line="42" selection-start-column="81" selection-end-line="42" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/ical/service/interfaces/RecurrenceEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="38" lean-forward="true" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/ComplexRecurImpl.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/ical/service/interfaces/ComplexRecur.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/ComplexEventsImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="84" column="35" lean-forward="true" selection-start-line="84" selection-start-column="35" selection-end-line="84" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/mail/service/EventService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="24" lean-forward="true" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/mail/service/EventServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2431">
+          <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/mail/controller/ComplexEventController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="48" column="35" selection-start-line="48" selection-start-column="35" selection-end-line="48" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/SimpleEventImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="216" column="47" lean-forward="true" selection-start-line="216" selection-start-column="47" selection-end-line="216" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mnode.ical4j/ical4j/2.2.0/2b030eee9dad2a6b83d428351af20f1954fe63d5/ical4j-2.2.0-sources.jar!/net/fortuna/ical4j/model/property/ExDate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="76" column="26" selection-start-line="76" selection-start-column="26" selection-end-line="76" selection-end-column="26" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#2217#2218#0" expanded="true" />
+            <element signature="e#2261#2262#0" expanded="true" />
+            <element signature="e#2776#2777#0" expanded="true" />
+            <element signature="e#2827#2828#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mnode.ical4j/ical4j/2.2.0/2b030eee9dad2a6b83d428351af20f1954fe63d5/ical4j-2.2.0-sources.jar!/net/fortuna/ical4j/model/DateList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="48" column="13" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/RecurrenceEventImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="67" column="13" lean-forward="true" selection-start-line="67" selection-start-column="13" selection-end-line="67" selection-end-column="13" />
+        <state relative-caret-position="-2462">
+          <caret line="43" column="8" lean-forward="true" selection-start-line="43" selection-start-column="8" selection-end-line="49" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/mail/controller/RecurrenceEventController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="31" column="5" selection-start-line="28" selection-start-column="4" selection-end-line="31" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/LotusNotesImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/ical/service/interfaces/ComplexUpdates.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="81" column="31" lean-forward="true" selection-start-line="81" selection-start-column="31" selection-end-line="81" selection-end-column="31" />
+        <state relative-caret-position="136">
+          <caret line="8" column="24" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/mail/controller/ComplexUpdatesController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="545">
+          <caret line="39" column="65" selection-start-line="39" selection-start-column="65" selection-end-line="39" selection-end-column="65" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1542986076788" expanded="true" signature="4689:4819" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/ComplexUpdatesImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="333" column="50" selection-start-line="333" selection-start-column="50" selection-end-line="333" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1543592082839" expanded="true" signature="2409:2539" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1460,6 +1562,17 @@
   </component>
   <component name="masterDetails">
     <states>
+      <state key="ArquillianSettingsConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />

@@ -63,15 +63,15 @@ public class EventWithHtmlImpl implements EventWithHtml {
         }
 
         Description description = new Description(parameterList,HTML_STRING);
+
         Description description1 = new Description("Simple One Column Layout Confirm Registration But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. Confirm 2017 @ COPYRIGHT - EDMDESIGNER");
 
-        event.getProperties().add(description1);
+        event.getProperties().add(description);
         event.getProperties().add(new Sequence("0"));
         event.getProperties().add(Transp.OPAQUE);
         PropertyList<Property> eventProperties = getEventProperties();
         event.getProperties().addAll(eventProperties);
 
-        event.getProperties().add(new Priority(5));
         XProperty lotusNotesType = new XProperty("X-LOTUS-NOTICETYPE", "I");
         event.getProperties().add(lotusNotesType);
 

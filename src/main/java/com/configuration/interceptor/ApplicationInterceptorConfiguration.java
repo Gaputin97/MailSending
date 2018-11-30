@@ -17,6 +17,6 @@ public class ApplicationInterceptorConfiguration implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(basicSecurityAuthenticationInterceptor).excludePathPatterns("/swagger-resources/configuration/security",
-                "/swagger-resources", "/v2/api-docs", "/swagger-resources/configuration/ui").addPathPatterns("/send/email/simple");
+                "/swagger-resources", "/v2/api-docs", "/swagger-resources/configuration/ui");
     }
 }
