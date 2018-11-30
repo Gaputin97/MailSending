@@ -4,16 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/SimpleEventImpl.java" line="23" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e473e040-17a1-4f05-8f2d-3bca1528311b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/ComplexEventsImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/ComplexEventsImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/EventWithHtmlImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/EventWithHtmlImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/LotusNotesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/business/ical/service/implementation/ComplexUpdatesImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/business/ical/service/interfaces/LotusNotes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/business/ical/service/interfaces/ComplexUpdates.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/business/mail/controller/LotusNotesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/business/mail/controller/ComplexUpdatesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/business/mail/service/EventServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/business/mail/service/EventServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/configuration/interceptor/ApplicationInterceptorConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/configuration/interceptor/ApplicationInterceptorConfiguration.java" afterDir="false" />
-    </list>
+    <list default="true" id="e473e040-17a1-4f05-8f2d-3bca1528311b" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -108,6 +99,7 @@
           <entry key="html" value="20" />
           <entry key="java" value="53625" />
           <entry key="properties" value="827" />
+          <entry key="txt" value="12" />
           <entry key="yml" value="68" />
         </counts>
       </usages-collector>
@@ -116,7 +108,7 @@
           <entry key="Groovy" value="31" />
           <entry key="HTML" value="20" />
           <entry key="JAVA" value="53625" />
-          <entry key="PLAIN_TEXT" value="847" />
+          <entry key="PLAIN_TEXT" value="859" />
           <entry key="Properties" value="827" />
           <entry key="YAML" value="68" />
         </counts>
@@ -1082,12 +1074,20 @@
       <workItem from="1543330536927" duration="1054000" />
       <workItem from="1543487486694" duration="13295000" />
       <workItem from="1543514965643" duration="5090000" />
-      <workItem from="1543578925143" duration="5780000" />
+      <workItem from="1543578925143" duration="6040000" />
     </task>
+    <task id="LOCAL-00001" summary="Last commit">
+      <created>1543592354686</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1543592354686</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="545064000" />
+    <option name="totallyTimeSpent" value="545324000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1118,13 +1118,13 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.329718" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.30911064" />
       <window_info anchor="bottom" id="Spring" order="8" weight="0.2635575" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4989339" weight="0.12255965" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.4989339" visible="true" weight="0.6084599" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5010661" side_tool="true" weight="0.2537961" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.35140997" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.329718" />
       <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="14" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" x="2" y="537" width="1876" height="411" id="Run Dashboard" order="15" visible="true" weight="0.5010846" />
+      <window_info anchor="bottom" x="2" y="537" width="1876" height="411" id="Run Dashboard" order="15" weight="1.0" />
       <window_info anchor="bottom" id="Thumbnails" order="16" weight="0.329718" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -1182,6 +1182,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Last commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Last commit" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
