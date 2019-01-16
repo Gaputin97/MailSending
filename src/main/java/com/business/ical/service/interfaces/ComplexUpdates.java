@@ -3,9 +3,11 @@ package com.business.ical.service.interfaces;
 import net.fortuna.ical4j.model.Calendar;
 
 public interface ComplexUpdates {
-    Calendar invitation();
-    Calendar firstReschedule();
+    Calendar invitationAll();
+    Calendar firstRescheduleAll();
+    Calendar secondRescheduleAll();
 
-    Calendar firstInvite();
-    Calendar secondReschedule();
+    Calendar inviteOutlook();
+    Calendar firstRescheduleOutlook();
+    Calendar secondRescheduleOutlook();
 }

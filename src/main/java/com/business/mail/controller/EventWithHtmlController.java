@@ -25,12 +25,12 @@ public class EventWithHtmlController {
     @PostMapping("/alt-rep")
     public EmailResponse sendHtmlWithAltRep(@RequestBody EmailRequest emailRequest) {
         return eventService.sendEventRequestWithHtml(emailRequest.getRecipientEmail(),
-                emailRequest.getMessageSubject(), eventWithHtml.createEventWithAltRep());
+                emailRequest.getMessageSubject(), eventWithHtml.createEventWithHtml());
     }
 
-//    @PostMapping("/alt-desc")
+//    @PostMapping("/email")
 //    public EmailResponse sendHtmlWithAltDesc(@RequestBody EmailRequest emailRequest) {
-//        return eventService.sendEventRequest(emailRequest.getRecipientEmail(),
-//                emailRequest.getMessageSubject(), eventWithHtml.createEventWithAtlDesc());
+//        return eventService.sendHtml(emailRequest.getRecipientEmail(),
+//                emailRequest.getMessageSubject(), eventWithHtml.createEventWithHtml());
 //    }
 }

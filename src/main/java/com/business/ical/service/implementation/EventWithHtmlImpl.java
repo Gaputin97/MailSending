@@ -1,5 +1,6 @@
 package com.business.ical.service.implementation;
 
+import com.business.AlterRep;
 import com.business.ical.service.interfaces.EventWithHtml;
 import net.fortuna.ical4j.model.*;
 import net.fortuna.ical4j.model.component.VEvent;
@@ -11,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.net.SocketException;
+import java.net.URI;
 import java.net.URISyntaxException;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -20,132 +22,77 @@ import java.util.List;
 @Component
 public class EventWithHtmlImpl implements EventWithHtml {
     private static final Logger logger = LoggerFactory.getLogger(EventWithHtmlImpl.class);
-    private Uid UID;
-    private final String HTML_STRING = "<html>\n" +
-            "   <head>\n" +
-            "      <title>Simple One Column Layout</title>\n" +
-            "      <meta charset=\"utf-8\" />\n" +
-            "      <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n" +
-            "      <style>html, body, div, p, ul, ol, li, h1, h2, h3, h4, h5, h6 {margin: 0;padding: 0;}body {font-size:10px;line-height:10px;}@media all and (max-width: 599px) {.container600 {width: 100%;}}</style>\n" +
-            "   </head>\n" +
-            "   <body style=\"background-color:#F4F4F4;\">\n" +
-            "      <div style=\"background-color:#F4F4F4;\"><div style=\"width:600px;margin:0 auto;\"><div style=\"padding: 10px;\"><div style=\"padding:30px; background-color:#FFFFFF;color:#58585A;\"><img alt=\"\" src=\"https://edmdesigner.github.io/modern-html-email-tutorial/lesson03/step-00/img/logo.png\" style=\"display:block;width:210px\"/></div>\n" +
-            "      <div style=\"padding:30px; background-color:#F8F7F0;color:#58585A;\">\n" +
-            "      <h1 style=\"font-size:28px;line-height:32px;margin-bottom:24px;\">Confirm Registration</h1>\n" +
-            "      <p style=\"font-size:16px;line-height:20px;font-family: Georgia, Arial, sans-serif;\">But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.</p><a href=\"http://edmdesigner.com\" style=\"display:block;color:#58585A;font-size:16px;line-height:20px;font-family:Georgia,Arial,sans-serif; text-align:center;padding-top:30px;padding-bottom:30px;\">Confirm</a></div><div style=\"padding:30px; background-color:#58585A;color:#FFFFFF;\"><p style=\"font-size:16px;line-height:20px;font-family: Georgia, Arial, sans-serif; text-align: center;\">2017 @ COPYRIGHT - EDMDESIGNER</p></div></div></div></div>\n" +
-            "   </body>\n" +
-            "</html>";
+    private static final String htmlBody = "<!DOCTYPE html><html xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:o=\"urn:schemas-microsoft-com:office:office\"><head> <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"> <meta name=\"viewport\" content=\"initial-scale=1.0\"> <meta name=\"format-detection\" content=\"telephone=no\"> <title>MOSAICO Responsive Email Designer</title> <style type=\"text/css\"> body{ margin: 0; padding: 0; } img{ border: 0px; display: block; } .socialLinks{ font-size: 6px; } .socialLinks a{ display: inline-block; } .long-text p{ margin: 1em 0px; } .long-text p:last-child{ margin-bottom: 0px; } .long-text p:first-child{ margin-top: 0px; } </style> <style type=\"text/css\"> /* yahoo, hotmail */ .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div{ line-height: 100%; } .yshortcuts a{ border-bottom: none !important; } .vb-outer{ min-width: 0 !important; } .RMsgBdy, .ExternalClass{ width: 100%; background-color: #3f3f3f; background-color: #3f3f3f} /* outlook/office365 add buttons outside not-linked images and safari have 2px margin */ [o365] button{ margin: 0 !important; } /* outlook */ table{ mso-table-rspace: 0pt; mso-table-lspace: 0pt; } #outlook a{ padding: 0; } img{ outline: none; text-decoration: none; border: none; -ms-interpolation-mode: bicubic; } a img{ border: none; } @media screen and (max-width: 600px) { table.vb-container, table.vb-row{ width: 95% !important; } .mobile-hide{ display: none !important; } .mobile-textcenter{ text-align: center !important; } .mobile-full{ width: 100% !important; max-width: none !important; } } /* previously used also screen and (max-device-width: 600px) but Yahoo Mail doesn't support multiple queries */ </style> <style type=\"text/css\"> #ko_tripleArticleBlock_4 .links-color a, #ko_tripleArticleBlock_4 .links-color a:link, #ko_tripleArticleBlock_4 .links-color a:visited, #ko_tripleArticleBlock_4 .links-color a:hover{ color: #3f3f3f; color: #3f3f3f; text-decoration: underline } #ko_doubleArticleBlock_6 .links-color a, #ko_doubleArticleBlock_6 .links-color a:link, #ko_doubleArticleBlock_6 .links-color a:visited, #ko_doubleArticleBlock_6 .links-color a:hover{ color: #3f3f3f; color: #3f3f3f; text-decoration: underline } #ko_footerBlock_2 .links-color a, #ko_footerBlock_2 .links-color a:link, #ko_footerBlock_2 .links-color a:visited, #ko_footerBlock_2 .links-color a:hover{ color: #cccccc; color: #cccccc; text-decoration: underline } </style> </head><body bgcolor=\"#3f3f3f\" text=\"#919191\" alink=\"#cccccc\" vlink=\"#cccccc\" style=\"margin: 0; padding: 0; background-color: #3f3f3f; color: #919191;\"><center> <table role=\"presentation\" class=\"vb-outer\" width=\"100%\" cellpadding=\"0\" border=\"0\" cellspacing=\"0\" bgcolor=\"#bfbfbf\" style=\"background-color: #bfbfbf;\" id=\"ko_tripleArticleBlock_4\"> <tbody><tr><td class=\"vb-outer\" align=\"center\" valign=\"top\" style=\"padding-left: 9px; padding-right: 9px; font-size: 0;\"> <!--[if (gte mso 9)|(lte ie 8)]><table role=\"presentation\" align=\"center\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"570\"><tr><td align=\"center\" valign=\"top\"><![endif]--><!-- --><div style=\"margin: 0 auto; max-width: 570px; -mru-width: 0px;\"><table role=\"presentation\" border=\"0\" cellpadding=\"0\" cellspacing=\"9\" bgcolor=\"#ffffff\" width=\"570\" class=\"vb-row\" style=\"border-collapse: separate; width: 100%; background-color: #ffffff; mso-cellspacing: 9px; border-spacing: 9px; max-width: 570px; -mru-width: 0px;\"> <tbody><tr> <td align=\"center\" valign=\"top\" style=\"font-size: 0;\"><div style=\"width: 100%; max-width: 552px; -mru-width: 0px;\"><!--[if (gte mso 9)|(lte ie 8)]><table role=\"presentation\" align=\"center\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"552\"><tr><![endif]--><!-- --><!-- --><!--[if (gte mso 9)|(lte ie 8)]><td align=\"left\" valign=\"top\" width=\"184\"><![endif]--><!-- --><div class=\"mobile-full\" style=\"display: inline-block; vertical-align: top; width: 100%; max-width: 184px; -mru-width: 0px; min-width: calc(33.333333333333336%); max-width: calc(100%); width: calc(304704px - 55200%);\"><!-- --><table role=\"presentation\" class=\"vb-content\" border=\"0\" cellspacing=\"9\" cellpadding=\"0\" style=\"border-collapse: separate; width: 100%; mso-cellspacing: 9px; border-spacing: 9px; -yandex-p: calc(2px - 3%);\" width=\"184\" align=\"left\"> <tbody><tr><td width=\"100%\" valign=\"top\" align=\"center\" class=\"links-color\" style=\"padding-bottom: 9px;\"><!--[if (lte ie 8)]><div style=\"display: inline-block; width: 166px; -mru-width: 0px;\"><![endif]--><img border=\"0\" hspace=\"0\" align=\"center\" vspace=\"0\" width=\"166\" height=\"90\" style=\"border: 0px; display: block; vertical-align: top; height: auto; margin: 0 auto; color: #3f3f3f; font-size: 13px; font-family: Arial, Helvetica, sans-serif; width: 100%; max-width: 166px; height: auto;\" src=\"https://mosaico.io/srv/f-p3kpuea/img?method=placeholder&amp;params=166%2C90\"><!--[if (lte ie 8)]></div><![endif]--></td></tr> <tr> <td width=\"100%\" valign=\"top\" align=\"left\" style=\"font-weight: normal; color: #3f3f3f; font-size: 18px; font-family: Lucida Sans Unicode, Lucida Grande, sans-serif; text-align: left;\"><span style=\"font-weight: normal;\">Title</span></td> </tr> <tr><td class=\"long-text links-color\" width=\"100%\" valign=\"top\" align=\"left\" style=\"font-weight: normal; color: #3f3f3f; font-size: 13px; font-family: Arial, Helvetica, sans-serif; text-align: left; line-height: normal;\"><p style=\"margin: 1em 0px; margin-bottom: 0px; margin-top: 0px;\">Far far away, behind the word mountains, far from the countries <a href=\"\" style=\"color: #3f3f3f; color: #3f3f3f; text-decoration: underline;\">Vokalia and Consonantia</a>, there live the blind texts.</p></td></tr> <tr> <td valign=\"top\" align=\"left\"><table role=\"presentation\" cellpadding=\"6\" border=\"0\" align=\"left\" cellspacing=\"0\" style=\"border-spacing: 0; mso-padding-alt: 6px 6px 6px 6px; padding-top: 4px;\"><tbody><tr> <td width=\"auto\" valign=\"middle\" align=\"left\" bgcolor=\"#bfbfbf\" style=\"text-align: center; font-weight: normal; padding: 6px; padding-left: 18px; padding-right: 18px; background-color: #bfbfbf; color: #3f3f3f; font-size: 13px; font-family: Arial, Helvetica, sans-serif; border-radius: 4px;\"><a style=\"text-decoration: none; font-weight: normal; color: #3f3f3f; font-size: 13px; font-family: Arial, Helvetica, sans-serif;\" target=\"_new\" href=\"\">BUTTON</a></td> </tr></tbody></table></td> </tr> </tbody></table><!-- --></div><!--[if (gte mso 9)|(lte ie 8)]></td><![endif]--><!-- --><!-- --><!--[if (gte mso 9)|(lte ie 8)]><td align=\"left\" valign=\"top\" width=\"184\"><![endif]--><!-- --><div class=\"mobile-full\" style=\"display: inline-block; vertical-align: top; width: 100%; max-width: 184px; -mru-width: 0px; min-width: calc(33.333333333333336%); max-width: calc(100%); width: calc(304704px - 55200%);\"><!-- --><table role=\"presentation\" class=\"vb-content\" border=\"0\" cellspacing=\"9\" cellpadding=\"0\" style=\"border-collapse: separate; width: 100%; mso-cellspacing: 9px; border-spacing: 9px; -yandex-p: calc(2px - 3%);\" width=\"184\" align=\"left\"> <tbody><tr><td width=\"100%\" valign=\"top\" align=\"center\" class=\"links-color\" style=\"padding-bottom: 9px;\"><!--[if (lte ie 8)]><div style=\"display: inline-block; width: 166px; -mru-width: 0px;\"><![endif]--><img border=\"0\" hspace=\"0\" align=\"center\" vspace=\"0\" width=\"166\" height=\"90\" style=\"border: 0px; display: block; vertical-align: top; height: auto; margin: 0 auto; color: #3f3f3f; font-size: 13px; font-family: Arial, Helvetica, sans-serif; width: 100%; max-width: 166px; height: auto;\" src=\"https://mosaico.io/srv/f-p3kpuea/img?method=placeholder&amp;params=166%2C90\"><!--[if (lte ie 8)]></div><![endif]--></td></tr> <tr> <td width=\"100%\" valign=\"top\" align=\"left\" style=\"font-weight: normal; color: #3f3f3f; font-size: 18px; font-family: Lucida Sans Unicode, Lucida Grande, sans-serif; text-align: left;\"><span style=\"font-weight: normal;\">Title</span></td> </tr> <tr><td class=\"long-text links-color\" width=\"100%\" valign=\"top\" align=\"left\" style=\"font-weight: normal; color: #3f3f3f; font-size: 13px; font-family: Arial, Helvetica, sans-serif; text-align: left; line-height: normal;\"><p style=\"margin: 1em 0px; margin-bottom: 0px; margin-top: 0px;\">Far far away, behind the word mountains, far from the countries <a href=\"\" style=\"color: #3f3f3f; color: #3f3f3f; text-decoration: underline;\">Vokalia and Consonantia</a>, there live the blind texts.</p></td></tr> <tr> <td valign=\"top\" align=\"left\"><table role=\"presentation\" cellpadding=\"6\" border=\"0\" align=\"left\" cellspacing=\"0\" style=\"border-spacing: 0; mso-padding-alt: 6px 6px 6px 6px; padding-top: 4px;\"><tbody><tr> <td width=\"auto\" valign=\"middle\" align=\"left\" bgcolor=\"#bfbfbf\" style=\"text-align: center; font-weight: normal; padding: 6px; padding-left: 18px; padding-right: 18px; background-color: #bfbfbf; color: #3f3f3f; font-size: 13px; font-family: Arial, Helvetica, sans-serif; border-radius: 4px;\"><a style=\"text-decoration: none; font-weight: normal; color: #3f3f3f; font-size: 13px; font-family: Arial, Helvetica, sans-serif;\" target=\"_new\" href=\"\">BUTTON</a></td> </tr></tbody></table></td> </tr> </tbody></table><!-- --></div><!--[if (gte mso 9)|(lte ie 8)]></td><![endif]--><!-- --><!-- --><!--[if (gte mso 9)|(lte ie 8)]><td align=\"left\" valign=\"top\" width=\"184\"><![endif]--><!-- --><div class=\"mobile-full\" style=\"display: inline-block; vertical-align: top; width: 100%; max-width: 184px; -mru-width: 0px; min-width: calc(33.333333333333336%); max-width: calc(100%); width: calc(304704px - 55200%);\"><!-- --><table role=\"presentation\" class=\"vb-content\" border=\"0\" cellspacing=\"9\" cellpadding=\"0\" style=\"border-collapse: separate; width: 100%; mso-cellspacing: 9px; border-spacing: 9px; -yandex-p: calc(2px - 3%);\" width=\"184\" align=\"left\"> <tbody><tr><td width=\"100%\" valign=\"top\" align=\"center\" class=\"links-color\" style=\"padding-bottom: 9px;\"><!--[if (lte ie 8)]><div style=\"display: inline-block; width: 166px; -mru-width: 0px;\"><![endif]--><img border=\"0\" hspace=\"0\" align=\"center\" vspace=\"0\" width=\"166\" height=\"90\" style=\"border: 0px; display: block; vertical-align: top; height: auto; margin: 0 auto; color: #3f3f3f; font-size: 13px; font-family: Arial, Helvetica, sans-serif; width: 100%; max-width: 166px; height: auto;\" src=\"https://mosaico.io/srv/f-p3kpuea/img?method=placeholder&amp;params=166%2C90\"><!--[if (lte ie 8)]></div><![endif]--></td></tr> <tr> <td width=\"100%\" valign=\"top\" align=\"left\" style=\"font-weight: normal; color: #3f3f3f; font-size: 18px; font-family: Lucida Sans Unicode, Lucida Grande, sans-serif; text-align: left;\"><span style=\"font-weight: normal;\">Title</span></td> </tr> <tr><td class=\"long-text links-color\" width=\"100%\" valign=\"top\" align=\"left\" style=\"font-weight: normal; color: #3f3f3f; font-size: 13px; font-family: Arial, Helvetica, sans-serif; text-align: left; line-height: normal;\"><p style=\"margin: 1em 0px; margin-bottom: 0px; margin-top: 0px;\">Far far away, behind the word mountains, far from the countries <a href=\"\" style=\"color: #3f3f3f; color: #3f3f3f; text-decoration: underline;\">Vokalia and Consonantia</a>, there live the blind texts.</p></td></tr> <tr> <td valign=\"top\" align=\"left\"><table role=\"presentation\" cellpadding=\"6\" border=\"0\" align=\"left\" cellspacing=\"0\" style=\"border-spacing: 0; mso-padding-alt: 6px 6px 6px 6px; padding-top: 4px;\"><tbody><tr> <td width=\"auto\" valign=\"middle\" align=\"left\" bgcolor=\"#bfbfbf\" style=\"text-align: center; font-weight: normal; padding: 6px; padding-left: 18px; padding-right: 18px; background-color: #bfbfbf; color: #3f3f3f; font-size: 13px; font-family: Arial, Helvetica, sans-serif; border-radius: 4px;\"><a style=\"text-decoration: none; font-weight: normal; color: #3f3f3f; font-size: 13px; font-family: Arial, Helvetica, sans-serif;\" target=\"_new\" href=\"\">BUTTON</a></td> </tr></tbody></table></td> </tr> </tbody></table><!-- --></div><!--[if (gte mso 9)|(lte ie 8)]></td><![endif]--><!-- --><!-- --><!--[if (gte mso 9)|(lte ie 8)]></tr></table><![endif]--></div></td> </tr> </tbody></table></div><!-- --><!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]--> </td></tr> </tbody></table><table role=\"presentation\" class=\"vb-outer\" width=\"100%\" cellpadding=\"0\" border=\"0\" cellspacing=\"0\" bgcolor=\"#bfbfbf\" style=\"background-color: #bfbfbf;\" id=\"ko_doubleArticleBlock_6\"> <tbody><tr><td class=\"vb-outer\" align=\"center\" valign=\"top\" style=\"padding-left: 9px; padding-right: 9px; font-size: 0;\"> <!--[if (gte mso 9)|(lte ie 8)]><table role=\"presentation\" align=\"center\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"570\"><tr><td align=\"center\" valign=\"top\"><![endif]--><!-- --><div style=\"margin: 0 auto; max-width: 570px; -mru-width: 0px;\"><table role=\"presentation\" border=\"0\" cellpadding=\"0\" cellspacing=\"9\" bgcolor=\"#ffffff\" width=\"570\" class=\"vb-row\" style=\"border-collapse: separate; width: 100%; background-color: #ffffff; mso-cellspacing: 9px; border-spacing: 9px; max-width: 570px; -mru-width: 0px;\"> <tbody><tr> <td align=\"center\" valign=\"top\" style=\"font-size: 0;\"><div style=\"width: 100%; max-width: 552px; -mru-width: 0px;\"><!--[if (gte mso 9)|(lte ie 8)]><table role=\"presentation\" align=\"center\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"552\"><tr><![endif]--><!-- --><!-- --><!--[if (gte mso 9)|(lte ie 8)]><td align=\"left\" valign=\"top\" width=\"276\"><![endif]--><!-- --><div class=\"mobile-full\" style=\"display: inline-block; vertical-align: top; width: 100%; max-width: 276px; -mru-width: 0px; min-width: calc(50%); max-width: calc(100%); width: calc(304704px - 55200%);\"><!-- --><table role=\"presentation\" class=\"vb-content\" border=\"0\" cellspacing=\"9\" cellpadding=\"0\" style=\"border-collapse: separate; width: 100%; mso-cellspacing: 9px; border-spacing: 9px; -yandex-p: calc(2px - 3%);\" width=\"276\" align=\"left\"> <tbody><tr><td width=\"100%\" valign=\"top\" align=\"center\" class=\"links-color\" style=\"padding-bottom: 9px;\"><!--[if (lte ie 8)]><div style=\"display: inline-block; width: 258px; -mru-width: 0px;\"><![endif]--><img border=\"0\" hspace=\"0\" align=\"center\" vspace=\"0\" width=\"258\" height=\"100\" style=\"border: 0px; display: block; vertical-align: top; height: auto; margin: 0 auto; color: #3f3f3f; font-size: 13px; font-family: Arial, Helvetica, sans-serif; width: 100%; max-width: 258px; height: auto;\" src=\"https://mosaico.io/srv/f-p3kpuea/img?method=placeholder&amp;params=258%2C100\"><!--[if (lte ie 8)]></div><![endif]--></td></tr> <tr> <td width=\"100%\" valign=\"top\" align=\"left\" style=\"font-weight: normal; color: #3f3f3f; font-size: 18px; font-family: Lucida Sans Unicode, Lucida Grande, sans-serif; text-align: left;\"><span style=\"font-weight: normal;\">Title</span></td> </tr> <tr><td class=\"long-text links-color\" width=\"100%\" valign=\"top\" align=\"left\" style=\"font-weight: normal; color: #3f3f3f; font-size: 13px; font-family: Arial, Helvetica, sans-serif; text-align: left; line-height: normal;\"><p style=\"margin: 1em 0px; margin-bottom: 0px; margin-top: 0px;\">Far far away, behind the word mountains, far from the countries <a href=\"\" style=\"color: #3f3f3f; color: #3f3f3f; text-decoration: underline;\">Vokalia and Consonantia</a>, there live the blind texts.</p></td></tr> <tr> <td valign=\"top\" align=\"left\"><table role=\"presentation\" cellpadding=\"6\" border=\"0\" align=\"left\" cellspacing=\"0\" style=\"border-spacing: 0; mso-padding-alt: 6px 6px 6px 6px; padding-top: 4px;\"><tbody><tr> <td width=\"auto\" valign=\"middle\" align=\"left\" bgcolor=\"#bfbfbf\" style=\"text-align: center; font-weight: normal; padding: 6px; padding-left: 18px; padding-right: 18px; background-color: #bfbfbf; color: #3f3f3f; font-size: 13px; font-family: Arial, Helvetica, sans-serif; border-radius: 4px;\"><a style=\"text-decoration: none; font-weight: normal; color: #3f3f3f; font-size: 13px; font-family: Arial, Helvetica, sans-serif;\" target=\"_new\" href=\"\">BUTTON</a></td> </tr></tbody></table></td> </tr> </tbody></table><!-- --></div><!--[if (gte mso 9)|(lte ie 8)]></td><![endif]--><!-- --><!-- --><!--[if (gte mso 9)|(lte ie 8)]><td align=\"left\" valign=\"top\" width=\"276\"><![endif]--><!-- --><div class=\"mobile-full\" style=\"display: inline-block; vertical-align: top; width: 100%; max-width: 276px; -mru-width: 0px; min-width: calc(50%); max-width: calc(100%); width: calc(304704px - 55200%);\"><!-- --><table role=\"presentation\" class=\"vb-content\" border=\"0\" cellspacing=\"9\" cellpadding=\"0\" style=\"border-collapse: separate; width: 100%; mso-cellspacing: 9px; border-spacing: 9px; -yandex-p: calc(2px - 3%);\" width=\"276\" align=\"left\"> <tbody><tr><td width=\"100%\" valign=\"top\" align=\"center\" class=\"links-color\" style=\"padding-bottom: 9px;\"><!--[if (lte ie 8)]><div style=\"display: inline-block; width: 258px; -mru-width: 0px;\"><![endif]--><img border=\"0\" hspace=\"0\" align=\"center\" vspace=\"0\" width=\"258\" height=\"100\" style=\"border: 0px; display: block; vertical-align: top; height: auto; margin: 0 auto; color: #3f3f3f; font-size: 13px; font-family: Arial, Helvetica, sans-serif; width: 100%; max-width: 258px; height: auto;\" src=\"https://mosaico.io/srv/f-p3kpuea/img?method=placeholder&amp;params=258%2C100\"><!--[if (lte ie 8)]></div><![endif]--></td></tr> <tr> <td width=\"100%\" valign=\"top\" align=\"left\" style=\"font-weight: normal; color: #3f3f3f; font-size: 18px; font-family: Lucida Sans Unicode, Lucida Grande, sans-serif; text-align: left;\"><span style=\"font-weight: normal;\">Title</span></td> </tr> <tr><td class=\"long-text links-color\" width=\"100%\" valign=\"top\" align=\"left\" style=\"font-weight: normal; color: #3f3f3f; font-size: 13px; font-family: Arial, Helvetica, sans-serif; text-align: left; line-height: normal;\"><p style=\"margin: 1em 0px; margin-bottom: 0px; margin-top: 0px;\">Far far away, behind the word mountains, far from the countries <a href=\"\" style=\"color: #3f3f3f; color: #3f3f3f; text-decoration: underline;\">Vokalia and Consonantia</a>, there live the blind texts.</p></td></tr> <tr> <td valign=\"top\" align=\"left\"><table role=\"presentation\" cellpadding=\"6\" border=\"0\" align=\"left\" cellspacing=\"0\" style=\"border-spacing: 0; mso-padding-alt: 6px 6px 6px 6px; padding-top: 4px;\"><tbody><tr> <td width=\"auto\" valign=\"middle\" align=\"left\" bgcolor=\"#bfbfbf\" style=\"text-align: center; font-weight: normal; padding: 6px; padding-left: 18px; padding-right: 18px; background-color: #bfbfbf; color: #3f3f3f; font-size: 13px; font-family: Arial, Helvetica, sans-serif; border-radius: 4px;\"><a style=\"text-decoration: none; font-weight: normal; color: #3f3f3f; font-size: 13px; font-family: Arial, Helvetica, sans-serif;\" target=\"_new\" href=\"\">BUTTON</a></td> </tr></tbody></table></td> </tr> </tbody></table><!-- --></div><!--[if (gte mso 9)|(lte ie 8)]></td><![endif]--><!-- --><!-- --><!--[if (gte mso 9)|(lte ie 8)]></tr></table><![endif]--></div></td> </tr> </tbody></table></div><!-- --><!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]--> </td></tr> </tbody></table> <!-- footerBlock --> <table role=\"presentation\" class=\"vb-outer\" width=\"100%\" cellpadding=\"0\" border=\"0\" cellspacing=\"0\" bgcolor=\"#3f3f3f\" style=\"background-color: #3f3f3f;\" id=\"ko_footerBlock_2\"> <tbody><tr><td class=\"vb-outer\" align=\"center\" valign=\"top\" style=\"padding-left: 9px; padding-right: 9px; font-size: 0;\"> <!--[if (gte mso 9)|(lte ie 8)]><table role=\"presentation\" align=\"center\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"570\"><tr><td align=\"center\" valign=\"top\"><![endif]--><!-- --><div style=\"margin: 0 auto; max-width: 570px; -mru-width: 0px;\"><table role=\"presentation\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"border-collapse: separate; width: 100%; mso-cellspacing: 0px; border-spacing: 0px; max-width: 570px; -mru-width: 0px;\" width=\"570\" class=\"vb-row\"> <tbody><tr> <td align=\"center\" valign=\"top\" style=\"font-size: 0; padding: 0 9px;\"><div style=\"vertical-align: top; width: 100%; max-width: 552px; -mru-width: 0px;\"><!-- --><table role=\"presentation\" class=\"vb-content\" border=\"0\" cellspacing=\"9\" cellpadding=\"0\" style=\"border-collapse: separate; width: 100%; mso-cellspacing: 9px; border-spacing: 9px;\" width=\"552\"> <tbody><tr><td class=\"long-text links-color\" width=\"100%\" valign=\"top\" align=\"center\" style=\"font-weight: normal; color: #919191; font-size: 13px; font-family: Arial, Helvetica, sans-serif; text-align: center;\"><p style=\"margin: 1em 0px; margin-bottom: 0px; margin-top: 0px;\">Email sent to <a href=\"mailto:[mail]\" style=\"color: #cccccc; color: #cccccc; text-decoration: underline;\">[mail]</a></p></td></tr> <tr><td width=\"100%\" valign=\"top\" align=\"center\" style=\"font-weight: normal; color: #ffffff; font-size: 13px; font-family: Arial, Helvetica, sans-serif; text-align: center;\"><a href=\"[unsubscribe_link]\" style=\"color: #ffffff; text-decoration: underline;\" target=\"_new\">Unsubscribe</a></td></tr> <tr style=\"text-align: center;\"><td width=\"100%\" valign=\"top\" align=\"center\" class=\"links-color\" style=\"text-align: center;\"><!--[if (lte ie 8)]><div style=\"display: inline-block; width: 170px; -mru-width: 0px;\"><![endif]--><a target=\"_new\" href=\"https://mosaico.io/?footerbadge\" style=\"color: #cccccc; color: #cccccc; text-decoration: underline;\"><img alt=\"MOSAICO Responsive Email Designer\" border=\"0\" hspace=\"0\" align=\"center\" vspace=\"0\" width=\"170\" src=\"https://mosaico.io/img/mosaico-badge.gif\" style=\"border: 0px; display: block; vertical-align: top; height: auto; margin: 0 auto; color: #3f3f3f; font-size: 13px; font-family: Arial, Helvetica, sans-serif; width: 100%; max-width: 170px;\"></a><!--[if (lte ie 8)]></div><![endif]--></td></tr> </tbody></table></div></td> </tr> </tbody></table></div><!-- --><!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]--> </td></tr> </tbody></table> <!-- /footerBlock --> </center></body></html>";
 
     @Override
-    public Calendar createEventWithAltRep() {
+    public Calendar createEventWithHtml() {
         Calendar simpleEventInvitation = new net.fortuna.ical4j.model.Calendar();
         simpleEventInvitation.getProperties().add(Version.VERSION_2_0);
         simpleEventInvitation.getProperties().add(CalScale.GREGORIAN);
         simpleEventInvitation.getProperties().add(new ProdId("-//Event Central//EN"));
         simpleEventInvitation.getProperties().add(Method.REQUEST);
 
+
         DateTime eventStartDateTime = null;
         DateTime eventEndDateTime = null;
         try {
-            eventStartDateTime = new DateTime("20181125T130000Z");
-            eventEndDateTime = new DateTime("20181125T152500Z");
+            eventStartDateTime = new DateTime("20190123T110000Z");
+            eventEndDateTime = new DateTime("20190124T132500Z");
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
-        VEvent event = new VEvent(eventStartDateTime, eventEndDateTime, "Invite Summary");
+        VEvent event = new VEvent(eventStartDateTime, eventEndDateTime, "X-ALT REP 12321321321321321");
 
-        ParameterList parameterList = new ParameterList();
-        try {
-            parameterList.add(new AltRep("CID:html-with-cid"));
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
-
-        Description description = new Description(parameterList,HTML_STRING);
-
-        Description description1 = new Description("Simple One Column Layout Confirm Registration But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. Confirm 2017 @ COPYRIGHT - EDMDESIGNER");
-
-        event.getProperties().add(description);
+        Location locationProperty = new Location("Conference room new ABRACADABRA");
+        event.getProperties().add(locationProperty);
         event.getProperties().add(new Sequence("0"));
         event.getProperties().add(Transp.OPAQUE);
-        PropertyList<Property> eventProperties = getEventProperties();
-        event.getProperties().addAll(eventProperties);
 
-        XProperty lotusNotesType = new XProperty("X-LOTUS-NOTICETYPE", "I");
-        event.getProperties().add(lotusNotesType);
+        XProperty p = new XProperty("X-ALT-DESC");
+        p.getParameters().add(new FmtType("text/html"));
+        p.setValue(htmlBody);
+        event.getProperties().add(p);
+
+        Description descriptionProperty = new Description("Project XYZ Review Meeting will include the following agenda items: \nMarket Overview \nFinances \nProject Management");
+        AlterRep altRepProperty = new AlterRep("CID:<32132132131321321321321>");
+        descriptionProperty.getParameters().add(altRepProperty);
+        event.getProperties().add(descriptionProperty);
 
         FixedUidGenerator fixedUidGenerator = null;
+        Attendee dev3 = null;
         try {
             event.getProperties().add(new Organizer("mailto:gaputinseva@gmail.com"));
             event.getProperties().addAll(getAttendeeList());
             fixedUidGenerator = new FixedUidGenerator("UHaputsin1");
+
+            dev3 = new Attendee("UHaputsin@ibagroup.eu");
+            dev3.getParameters().add(Rsvp.FALSE);
+            dev3.getParameters().add(Role.REQ_PARTICIPANT);
         } catch (URISyntaxException | SocketException e) {
             e.printStackTrace();
         }
+        event.getProperties().add(dev3);
 
-        UID = fixedUidGenerator.generateUid();
+
+        Uid UID = fixedUidGenerator.generateUid();
         event.getProperties().add(UID);
 
         simpleEventInvitation.getComponents().add(event);
-        simpleEventInvitation.validate();
         logger.info("\nCalendar: \n" + simpleEventInvitation.toString());
         return simpleEventInvitation;
-    }
-
-    private PropertyList<Property> getEventProperties () {
-        PropertyList<Property> propertyList = new PropertyList<>();
-
-        Location locationProperty = new Location("Conference room A103");
-
-        XProperty altDesc = new XProperty("X-ALT-DESC");
-        altDesc.getParameters().add(new FmtType("text/html"));
-        altDesc.setValue(HTML_STRING);
-        XProperty lotusBroadcast = new XProperty("X-LOTUS-BROADCAST", "TRUE");
-        XProperty lotusPreventCounter = new XProperty("X-LOTUS-PREVENTCOUNTER", "FALSE");
-        XProperty microsoftDisallowCounter = new XProperty("X-MICROSOFT-DISALLOW-COUNTER", "TRUE");
-        XProperty outlookForceOpen = new XProperty("X-MS-OLK-FORCEINSPECTOROPEN", "TRUE");
-        XProperty msAttachment = new XProperty("X-MS-ATTACHMENT", "YES");
-        XProperty lotusUtf8 = new XProperty("X-LOTUS-CHARSET", "UTF-8");
-        XProperty lotusPreventDelegation = new XProperty("X-LOTUS-PREVENTDELEGATION", "TRUE");
-        XProperty lotusVersion = new XProperty("X-LOTUS-NOTESVERSION", "2");
-        XProperty lotusAppType = new XProperty("X-LOTUS-APPTTYPE", "3");
-        XProperty updateLotus = new XProperty("X-LOTUS-UPDATE-SEQ",  "1");
-
-        propertyList.addAll(Arrays.asList(altDesc,locationProperty, lotusPreventDelegation,
-                microsoftDisallowCounter, lotusVersion, lotusAppType, lotusBroadcast,
-                lotusPreventCounter, lotusUtf8, outlookForceOpen, msAttachment, updateLotus));
-        return propertyList;
     }
 
     private List<Attendee> getAttendeeList() throws URISyntaxException {
         List<Attendee> attendeeList = new ArrayList<>();
 
-        Attendee dev1 = new Attendee("gaputinseva@gmail.com");
-        dev1.getParameters().add(Rsvp.FALSE);
-        dev1.getParameters().add(PartStat.ACCEPTED);
-        dev1.getParameters().add(Role.CHAIR);
-
-        Attendee dev2 = new Attendee("gaputin@hotmail.com");
-        dev2.getParameters().add(Rsvp.TRUE);
-        dev2.getParameters().add(PartStat.ACCEPTED);
-        dev2.getParameters().add(Role.REQ_PARTICIPANT);
-
         Attendee dev3 = new Attendee("UHaputsin@ibagroup.eu");
-        dev3.getParameters().add(Rsvp.TRUE);
-        dev3.getParameters().add(PartStat.ACCEPTED);
+        dev3.getParameters().add(Rsvp.FALSE);
         dev3.getParameters().add(Role.REQ_PARTICIPANT);
 
-        Attendee dev4 = new Attendee("gaputinsevaiba@gmail.com");
-        dev4.getParameters().add(Rsvp.FALSE);
-        dev4.getParameters().add(PartStat.ACCEPTED);
-        dev4.getParameters().add(Role.REQ_PARTICIPANT);
-
-        attendeeList.add(dev1);
-        attendeeList.add(dev2);
         attendeeList.add(dev3);
-        attendeeList.add(dev4);
 
         return attendeeList;
     }
+
 }

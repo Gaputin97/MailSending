@@ -22,7 +22,12 @@ import java.util.List;
 @Component
 public class RecurrenceEventImpl implements RecurrenceEvent {
     private static final Logger logger = LoggerFactory.getLogger(RecurrenceEvent.class);
-    private Uid UID = null;
+    private Uid UID;
+
+    @Override
+    public Calendar recurOnePlusCancel() {
+        return null;
+    }
 
     @Override
     public Calendar recurInvitation(){
@@ -35,33 +40,21 @@ public class RecurrenceEventImpl implements RecurrenceEvent {
         DateTime eventStartDateTime = null;
         DateTime eventEndDateTime = null;
         try {
-            eventStartDateTime = new DateTime("20181119T130000Z");
-            eventEndDateTime = new DateTime("20181119T152500Z");
+            eventStartDateTime = new DateTime("20190115T130000Z");
+            eventEndDateTime = new DateTime("20190115T152500Z");
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
-        DateList dates = new DateList();
-        try {
-            dates.add(new DateTime("20181121T13000Z"));
-            dates.add(new DateTime("20181123T13000Z"));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        VEvent event = new VEvent(eventStartDateTime, eventEndDateTime, "Send invitation to recurrence event");
+        VEvent event = new VEvent(eventStartDateTime, eventEndDateTime, "Send invitationAll to recurrence event");
 
         try {
-            event.getProperties().add(new RRule("FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,WE,FR;COUNT=5"));
+            event.getProperties().add(new RRule("FREQ=DAILY;COUNT=1"));
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
         event.getProperties().add(Transp.OPAQUE);
-        PropertyList<Property> eventProperties = getEventProperties();
-        event.getProperties().addAll(eventProperties);
-        XProperty lotusNotesType = new XProperty("X-LOTUS-NOTICETYPE", "I");
-        event.getProperties().add(lotusNotesType);
         event.getProperties().add(new Sequence("0"));
 
         FixedUidGenerator fixedUidGenerator = null;
@@ -73,7 +66,7 @@ public class RecurrenceEventImpl implements RecurrenceEvent {
             logger.error("Error");
         }
 
-        UID = fixedUidGenerator.generateUid();
+        UID = new Uid(fixedUidGenerator.generateUid().toString());
         event.getProperties().add(UID);
 
         recurrenceEventInvitation.getComponents().add(event);
@@ -93,32 +86,28 @@ public class RecurrenceEventImpl implements RecurrenceEvent {
         DateTime eventStartDateTime = null;
         DateTime eventEndDateTime = null;
         try {
-            eventStartDateTime = new DateTime("20181119T13000Z");
-            eventEndDateTime = new DateTime("20181119T152500Z");
+            eventStartDateTime = new DateTime("20190112T130000Z");
+            eventEndDateTime = new DateTime("20190112T152500Z");
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
         VEvent event = new VEvent(eventStartDateTime, eventEndDateTime, "Updated event v1");
 
-        try {
-            event.getProperties().add(new RRule("FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,WE,FR;COUNT=5"));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            event.getProperties().add(new RRule("FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,WE,FR;COUNT=5"));
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
 
-        PropertyList<Property> eventProperties = getEventProperties();
+//        try {
+//            event.getProperties().add(new RecurrenceId("20190111T130000Z"));
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
 
         event.getProperties().add(Transp.OPAQUE);
-        event.getProperties().add(new Sequence("0"));
-        event.getProperties().addAll(eventProperties);
-
-        XProperty lotusNotesType = new XProperty("X-LOTUS-NOTICETYPE", "E");
-        XProperty subjectUpdate = new XProperty("X-LOTUS-UPDATE-SUBJECT", "New Subject For Lotus");
-        XProperty sequenceUpdate = new XProperty("X-LOTUS-UPDATE-SEQ", "1");
-        event.getProperties().add(subjectUpdate);
-        event.getProperties().add(sequenceUpdate);
-        event.getProperties().add(lotusNotesType);
+        event.getProperties().add(new Sequence("1"));
 
         try {
             event.getProperties().add(new Organizer("mailto:gaputinseva@gmail.com"));
@@ -153,7 +142,6 @@ public class RecurrenceEventImpl implements RecurrenceEvent {
         }
 
         VEvent event = new VEvent(eventStartDateTime, eventEndDateTime, "Updated event v2");
-        PropertyList<Property> eventProperties = getEventProperties();
 
         try {
             event.getProperties().add(new RecurrenceId("20181121T13000Z"));
@@ -163,14 +151,6 @@ public class RecurrenceEventImpl implements RecurrenceEvent {
 
         event.getProperties().add(Transp.OPAQUE);
         event.getProperties().add(new Sequence("0"));
-        event.getProperties().addAll(eventProperties);
-
-        XProperty lotusNotesType = new XProperty("X-LOTUS-NOTICETYPE", "E");
-        XProperty subjectUpdate = new XProperty("X-LOTUS-UPDATE-SUBJECT", "New Subject For Lotus");
-        XProperty sequenceUpdate = new XProperty("X-LOTUS-UPDATE-SEQ", "1");
-        event.getProperties().add(subjectUpdate);
-        event.getProperties().add(sequenceUpdate);
-        event.getProperties().add(lotusNotesType);
 
         try {
             event.getProperties().addAll(getAttendeeList());
@@ -205,7 +185,6 @@ public class RecurrenceEventImpl implements RecurrenceEvent {
         }
 
         VEvent event = new VEvent(eventStartDateTime, eventEndDateTime, "Updated more than one event with different description");
-        PropertyList<Property> eventProperties = getEventProperties();
 
         try {
             event.getProperties().add(new RRule("FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,WE,FR;COUNT=5"));
@@ -224,14 +203,6 @@ public class RecurrenceEventImpl implements RecurrenceEvent {
         event.getProperties().add(new ExDate(dates));
         event.getProperties().add(Transp.OPAQUE);
         event.getProperties().add(new Sequence("0"));
-        event.getProperties().addAll(eventProperties);
-
-        XProperty lotusNotesType = new XProperty("X-LOTUS-NOTICETYPE", "E");
-        XProperty subjectUpdate = new XProperty("X-LOTUS-UPDATE-SUBJECT", "New Subject For Lotus");
-        XProperty sequenceUpdate = new XProperty("X-LOTUS-UPDATE-SEQ", "1");
-        event.getProperties().add(subjectUpdate);
-        event.getProperties().add(sequenceUpdate);
-        event.getProperties().add(lotusNotesType);
 
         try {
             event.getProperties().add(new Organizer("mailto:gaputinseva@gmail.com"));
@@ -259,30 +230,19 @@ public class RecurrenceEventImpl implements RecurrenceEvent {
         DateTime eventStartDateTime = null;
         DateTime eventEndDateTime = null;
         try {
-            eventStartDateTime = new DateTime("20181119T15000Z");
-            eventEndDateTime = new DateTime("20181119T172500Z");
+            eventStartDateTime = new DateTime("20190117T160000Z");
+            eventEndDateTime = new DateTime("20190117T192500Z");
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
-        VEvent event = new VEvent(eventStartDateTime, eventEndDateTime, "Rescheduled full recurrence event with different time");
+        VEvent event = new VEvent(eventStartDateTime, eventEndDateTime, "Recurrence event with different TIME");
 
         try {
-            event.getProperties().add(new RRule("FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,WE,FR;COUNT=5"));
+            event.getProperties().add(new RRule("FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,FR;COUNT=7"));
         } catch (ParseException e) {
             e.printStackTrace();
         }
-
-        PropertyList<Property> eventProperties = getEventProperties();
-
-        event.getProperties().add(Transp.OPAQUE);
-        event.getProperties().addAll(eventProperties);
-        XProperty lotusNotesType = new XProperty("X-LOTUS-NOTICETYPE", "U");
-        event.getProperties().add(lotusNotesType);
-        event.getProperties().add(new Sequence("2"));
-
-        XProperty sequenceUpdate = new XProperty("X-LOTUS-UPDATE-SEQ", "2");
-        event.getProperties().add(sequenceUpdate);
 
         try {
             event.getProperties().addAll(getAttendeeList());
@@ -317,7 +277,6 @@ public class RecurrenceEventImpl implements RecurrenceEvent {
         }
 
         VEvent event = new VEvent(eventStartDateTime, eventEndDateTime, "Reschedule single event ");
-        PropertyList<Property> eventProperties = getEventProperties();
 
         try {
             event.getProperties().add(new RecurrenceId("20181123T15000Z"));
@@ -327,14 +286,6 @@ public class RecurrenceEventImpl implements RecurrenceEvent {
 
         event.getProperties().add(Transp.OPAQUE);
         event.getProperties().add(new Sequence("3"));
-        event.getProperties().addAll(eventProperties);
-
-        XProperty lotusNotesType = new XProperty("X-LOTUS-NOTICETYPE", "E");
-        XProperty subjectUpdate = new XProperty("X-LOTUS-UPDATE-SUBJECT", "New Subject For Lotus");
-        XProperty sequenceUpdate = new XProperty("X-LOTUS-UPDATE-SEQ", "1");
-        event.getProperties().add(subjectUpdate);
-        event.getProperties().add(sequenceUpdate);
-        event.getProperties().add(lotusNotesType);
 
         try {
             event.getProperties().add(new Organizer("mailto:gaputinseva@gmail.com"));
@@ -385,18 +336,8 @@ public class RecurrenceEventImpl implements RecurrenceEvent {
             e.printStackTrace();
         }
 
-        PropertyList<Property> eventProperties = getEventProperties();
-
         event.getProperties().add(Transp.OPAQUE);
         event.getProperties().add(new Sequence("4"));
-        event.getProperties().addAll(eventProperties);
-
-        XProperty lotusNotesType = new XProperty("X-LOTUS-NOTICETYPE", "U");
-        XProperty subjectUpdate = new XProperty("X-LOTUS-UPDATE-SUBJECT", "Reschedule subject For Lotus");
-        XProperty sequenceUpdate = new XProperty("X-LOTUS-UPDATE-SEQ", "2");
-        event.getProperties().add(subjectUpdate);
-        event.getProperties().add(sequenceUpdate);
-        event.getProperties().add(lotusNotesType);
 
         try {
             event.getProperties().add(new Organizer("mailto:gaputinseva@gmail.com"));
@@ -441,10 +382,7 @@ public class RecurrenceEventImpl implements RecurrenceEvent {
 
         event.getProperties().add(Transp.OPAQUE);
 
-        PropertyList<Property> eventProperties = getEventProperties();
-        event.getProperties().addAll(eventProperties);
-        XProperty lotusNotesType = new XProperty("X-LOTUS-NOTICETYPE", "S");
-        event.getProperties().add(lotusNotesType);
+
         event.getProperties().add(new Sequence("4"));
 
         try {
@@ -484,10 +422,6 @@ public class RecurrenceEventImpl implements RecurrenceEvent {
         VEvent event = new VEvent(eventStartDateTime, eventEndDateTime,  "Cancel one event from recurrence event");
         event.getProperties().add(Transp.OPAQUE);
 
-        PropertyList<Property> eventProperties = getEventProperties();
-        event.getProperties().addAll(eventProperties);
-        XProperty lotusNotesType = new XProperty("X-LOTUS-NOTICETYPE", "S");
-        event.getProperties().add(lotusNotesType);
         event.getProperties().add(new Sequence("4"));
 
         try {
@@ -512,35 +446,6 @@ public class RecurrenceEventImpl implements RecurrenceEvent {
         recurrenceEventCancel.validate();
         logger.info("\nCalendar: \n" + recurrenceEventCancel.toString());
         return recurrenceEventCancel;
-    }
-
-    @Override
-    public Calendar recurOnePlusCancel() {
-        return null;
-    }
-
-    private PropertyList<Property> getEventProperties () {
-        PropertyList<Property> propertyList = new PropertyList<>();
-
-        String location = "Conference room A103";
-        Location locationProperty = new Location(location);
-
-        Description descriptionProperty = new Description("Description");
-        XProperty lotusBroadcast = new XProperty("X-LOTUS-BROADCAST", "TRUE");
-        XProperty lotusPreventCounter = new XProperty("X-LOTUS-PREVENTCOUNTER", "FALSE");
-        XProperty microsoftDisallowCounter = new XProperty("X-MICROSOFT-DISALLOW-COUNTER", "TRUE");
-        XProperty outlookForceOpen = new XProperty("X-MS-OLK-FORCEINSPECTOROPEN", "TRUE");
-        XProperty msAttachment = new XProperty("X-MS-ATTACHMENT", "YES");
-        XProperty lotusUtf8 = new XProperty("X-LOTUS-CHARSET", "UTF-8");
-        XProperty lotusPreventDelegation = new XProperty("X-LOTUS-PREVENTDELEGATION", "TRUE");
-        XProperty lotusVersion = new XProperty("X-LOTUS-NOTESVERSION", "2");
-        XProperty lotusAppType = new XProperty("X-LOTUS-APPTTYPE", "3");
-
-        propertyList.addAll(Arrays.asList(descriptionProperty, locationProperty, lotusPreventDelegation,
-                microsoftDisallowCounter, lotusVersion, lotusAppType, lotusBroadcast,
-                lotusPreventCounter, lotusUtf8, outlookForceOpen, msAttachment));
-
-        return propertyList;
     }
 
     private List<Attendee> getAttendeeList() throws URISyntaxException {

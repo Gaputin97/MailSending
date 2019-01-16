@@ -1,0 +1,17 @@
+com
+com.business.ical.service.implementation
+com.business.ical.service.interfaces
+com.business.mail.controller
+com.business.mail.model
+com.business.mail.repository
+com.business.mail.service
+com.business.user.interceptor
+com.business.user.model
+com.business.user.repository
+com.business.user.service.security
+com.configuration
+com.configuration.database
+com.configuration.interceptor
+com.configuration.mail
+com.configuration.rest
+com.configuration.swagger

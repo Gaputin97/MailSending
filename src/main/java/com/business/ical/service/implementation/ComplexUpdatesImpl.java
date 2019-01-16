@@ -16,73 +16,96 @@ import java.text.ParseException;
 @Component
 public class ComplexUpdatesImpl implements ComplexUpdates {
     private static final Logger logger = LoggerFactory.getLogger(EventWithHtmlImpl.class);
+    private Uid Uid1;
+    private Uid Uid2;
 
-    private Uid UID = null;
-
-    private Uid generate() {
-
-        FixedUidGenerator fixedUidGenerator = null;
+    {
+        FixedUidGenerator fixedUidGenerator1 = null;
+        FixedUidGenerator fixedUidGenerator2 = null;
         try {
-            fixedUidGenerator = new FixedUidGenerator("haputsin");
+            fixedUidGenerator1 = new FixedUidGenerator("haputsin");
+            fixedUidGenerator2 = new FixedUidGenerator("Uhaputsin");
         } catch (SocketException e) {
             e.printStackTrace();
         }
-        return fixedUidGenerator.generateUid();
+
+        Uid1 = fixedUidGenerator1.generateUid();
+        Uid2 = fixedUidGenerator2.generateUid();
     }
 
     @Override
-    public Calendar invitation() {
-
-        Calendar complexEventCancel = new Calendar();
-        complexEventCancel.getProperties().add(Version.VERSION_2_0);
-        complexEventCancel.getProperties().add(CalScale.GREGORIAN);
-        complexEventCancel.getProperties().add(new ProdId("-//Event Central//EN"));
-        complexEventCancel.getProperties().add(Method.PUBLISH);
+    public Calendar invitationAll() {
+        Calendar complexEventInvitation = new Calendar();
+        complexEventInvitation.getProperties().add(Version.VERSION_2_0);
+        complexEventInvitation.getProperties().add(CalScale.GREGORIAN);
+        complexEventInvitation.getProperties().add(new ProdId("-//Event Central//EN"));
+        complexEventInvitation.getProperties().add(Method.PUBLISH);
         //***************************************************************************************************
         DateTime eventStartDateTime1 = null;
         DateTime eventEndDateTime1 = null;
         try {
-            eventStartDateTime1 = new DateTime("20181201T091100Z");
-            eventEndDateTime1 = new DateTime("20181201T121100Z");
+            eventStartDateTime1 = new DateTime("20190110T091100Z");
+            eventEndDateTime1 = new DateTime("20190110T121100Z");
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
-        VEvent event1 = new VEvent(eventStartDateTime1, eventEndDateTime1, "Event invitation");
-        event1.getProperties().add(Transp.OPAQUE);
+        VEvent event11 = new VEvent(eventStartDateTime1, eventEndDateTime1, "Complex first event invitation summary");
+        event11.getProperties().add(Transp.OPAQUE);
 
-        event1.getProperties().add(new Sequence("0"));
-        event1.getProperties().add(new Description("Invite description for event"));
-        event1.getProperties().add(new Location("London"));
-        UID = generate();
-        event1.getProperties().add(UID);
+        event11.getProperties().add(new Sequence("0"));
+        event11.getProperties().add(new Description("First event invitation description"));
+        event11.getProperties().add(new Location("London"));
+
+        event11.getProperties().add(Uid1);
+
         try {
-            event1.getProperties().add(new Organizer("mailto:gaputinseva@gmail.com"));
+            event11.getProperties().add(new Organizer("mailto:gaputinseva@gmail.com"));
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
-//        PropertyList<Property> eventProperties1 = getEventProperties();
-//        event1.getProperties().addAll(eventProperties1);
-
-        XProperty lotusNotesType1 = new XProperty("X-LOTUS-NOTICETYPE", "I");
-        event1.getProperties().add(lotusNotesType1);
 
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        //***************************************************************************************************
+        DateTime eventStartDateTime2 = null;
+        DateTime eventEndDateTime2 = null;
+        try {
+            eventStartDateTime2 = new DateTime("20190112T091100Z");
+            eventEndDateTime2 = new DateTime("20190112T121100Z");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
-        complexEventCancel.getComponents().add(event1);
-        complexEventCancel.validate();
-        logger.info("\nCalendar: \n" + complexEventCancel.toString());
+        VEvent event12 = new VEvent(eventStartDateTime2, eventEndDateTime2, "Complex second event invitation summary");
+        event12.getProperties().add(Transp.OPAQUE);
 
-        return complexEventCancel;
+        event12.getProperties().add(new Sequence("0"));
+        event12.getProperties().add(new Description("Second event invitation description"));
+        event12.getProperties().add(new Location("Moscow"));
+
+        event12.getProperties().add(Uid2);
+
+        try {
+            event12.getProperties().add(new Organizer("mailto:gaputinseva@gmail.com"));
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+
+        complexEventInvitation.getComponents().add(event11);
+        complexEventInvitation.getComponents().add(event12);
+
+        complexEventInvitation.validate();
+        logger.info("\nCalendar: \n" + complexEventInvitation.toString());
+
+        return complexEventInvitation;
     }
 
     @Override
-    public Calendar firstReschedule() {
-
+    public Calendar firstRescheduleAll() {
         Calendar complexEventReschedule = new Calendar();
         complexEventReschedule.getProperties().add(Version.VERSION_2_0);
         complexEventReschedule.getProperties().add(CalScale.GREGORIAN);
@@ -90,31 +113,26 @@ public class ComplexUpdatesImpl implements ComplexUpdates {
         complexEventReschedule.getProperties().add(Method.PUBLISH);
 
         //***************************************************************************************************
-        DateTime eventStartDateTime1 = null;
-        DateTime eventEndDateTime1 = null;
+        DateTime eventStartDateTime12 = null;
+        DateTime eventEndDateTime12 = null;
+
         try {
-            eventStartDateTime1 = new DateTime("20181201T091100Z");
-            eventEndDateTime1 = new DateTime("20181201T121100Z");
+            eventStartDateTime12 = new DateTime("20190111T092200Z");
+            eventEndDateTime12 = new DateTime("20190111T122200Z");
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
-        VEvent event1 = new VEvent(eventStartDateTime1, eventEndDateTime1, "Event invitation");
-        event1.getProperties().add(Transp.OPAQUE);
+        VEvent event12 = new VEvent(eventStartDateTime12, eventEndDateTime12, "First rescheduling of the first event summary");
+        event12.getProperties().add(Transp.TRANSPARENT);
 
-        event1.getProperties().add(new Sequence("0"));
-        event1.getProperties().add(new Description("Invite description for event"));
-        event1.getProperties().add(new Location("London"));
-
-        if (UID != null) {
-            event1.getProperties().add(UID);
-        } else {
-            UID = generate();
-            event1.getProperties().add(UID);
-        }
+        event12.getProperties().add(new Sequence("1"));
+        event12.getProperties().add(new Description("First rescheduling of the first event description"));
+        event12.getProperties().add(new Location("Pacino"));
+        event12.getProperties().add(Uid1);
 
         try {
-            event1.getProperties().add(new Organizer("mailto:gaputinseva@gmail.com"));
+            event12.getProperties().add(new Organizer("mailto:gaputinseva@gmail.com"));
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
@@ -125,46 +143,39 @@ public class ComplexUpdatesImpl implements ComplexUpdates {
             e.printStackTrace();
         }
 
-        XProperty outlookForceOpen = new XProperty("X-MS-OLK-FORCEINSPECTOROPEN", "TRUE");
-        event1.getProperties().add(outlookForceOpen);
         //***************************************************************************************************
-        DateTime eventStartDateTime2 = null;
-        DateTime eventEndDateTime2 = null;
+        DateTime eventStartDateTime22 = null;
+        DateTime eventEndDateTime22 = null;
 
         try {
-            eventStartDateTime2 = new DateTime("20181202T122200Z");
-            eventEndDateTime2 = new DateTime("20181202T152200Z");
+            eventStartDateTime22 = new DateTime("20190113T092200Z");
+            eventEndDateTime22 = new DateTime("20190113T122200Z");
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
-        VEvent event2 = new VEvent(eventStartDateTime2, eventEndDateTime2, "First reschedule summary - 1");
-        event2.getProperties().add(Transp.TRANSPARENT);
+        VEvent event22 = new VEvent(eventStartDateTime22, eventEndDateTime22, "First rescheduling of the second event summary");
+        event22.getProperties().add(Transp.TRANSPARENT);
 
-        event2.getProperties().add(new Sequence("1"));
-        event2.getProperties().add(new Description("First reschedule decs 1"));
-        event2.getProperties().add(UID);
+        event22.getProperties().add(new Sequence("1"));
+        event22.getProperties().add(new Description("First rescheduling of the second event description"));
+        event22.getProperties().add(new Location("Miami"));
+        event22.getProperties().add(Uid2);
 
         try {
-            event2.getProperties().add(new Organizer("mailto:gaputinseva@gmail.com"));
+            event22.getProperties().add(new Organizer("mailto:gaputinseva@gmail.com"));
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
-        event2.getProperties().add(outlookForceOpen);
 
-        //***************************************************************************************************
-        complexEventReschedule.getComponents().add(event1);
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        complexEventReschedule.getComponents().add(event2);
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
+        complexEventReschedule.getComponents().add(event12);
+        complexEventReschedule.getComponents().add(event22);
 
         complexEventReschedule.validate();
         logger.info("\nCalendar: \n" + complexEventReschedule.toString());
@@ -173,44 +184,35 @@ public class ComplexUpdatesImpl implements ComplexUpdates {
     }
 
     @Override
-    public Calendar firstInvite() {
-        Calendar recurrenceEventInvitation = new Calendar();
-        recurrenceEventInvitation.getProperties().add(Version.VERSION_2_0);
-        recurrenceEventInvitation.getProperties().add(CalScale.GREGORIAN);
-        recurrenceEventInvitation.getProperties().add(new ProdId("-//Event Central//EN"));
-        recurrenceEventInvitation.getProperties().add(Method.PUBLISH);
+    public Calendar secondRescheduleAll() {
+        Calendar secondComplexRescheduleCalendar = new Calendar();
+        secondComplexRescheduleCalendar.getProperties().add(Version.VERSION_2_0);
+        secondComplexRescheduleCalendar.getProperties().add(CalScale.GREGORIAN);
+        secondComplexRescheduleCalendar.getProperties().add(new ProdId("-//Event Central//EN"));
+        secondComplexRescheduleCalendar.getProperties().add(Method.PUBLISH);
 
-        DateTime eventStartDateTime = null;
-        DateTime eventEndDateTime = null;
+        //***************************************************************************************************
+        DateTime eventStartDateTime13 = null;
+        DateTime eventEndDateTime13 = null;
+
         try {
-            eventStartDateTime = new DateTime("20181201T130000Z");
-            eventEndDateTime = new DateTime("20181201T152500Z");
+            eventStartDateTime13 = new DateTime("20181203T143300Z");
+            eventEndDateTime13 = new DateTime("20181203T173300Z");
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
-        VEvent event = new VEvent(eventStartDateTime, eventEndDateTime, "Send invitation to complex(recur) event");
+        VEvent event13 = new VEvent(eventStartDateTime13, eventEndDateTime13, "Second rescheduling of the first event summary");
+        event13.getProperties().add(Transp.TRANSPARENT);
+
+        event13.getProperties().add(new Sequence("2"));
+        event13.getProperties().add(new Description("Second rescheduling of the first event description"));
+        event13.getProperties().add(Uid1);
 
         try {
-            event.getProperties().add(new RRule("FREQ=DAILY;COUNT=1"));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        event.getProperties().add(Transp.OPAQUE);
-        event.getProperties().add(new Sequence("0"));
-
-        try {
-            event.getProperties().add(new Organizer("mailto:gaputinseva@gmail.com"));
+            event13.getProperties().add(new Organizer("mailto:gaputinseva@gmail.com"));
         } catch (URISyntaxException e) {
-            logger.error("Error has cause with creating a new UID");
-        }
-
-        if (UID != null) {
-            event.getProperties().add(UID);
-        } else {
-            UID = generate();
-            event.getProperties().add(UID);
+            e.printStackTrace();
         }
 
         try {
@@ -218,58 +220,74 @@ public class ComplexUpdatesImpl implements ComplexUpdates {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        //***************************************************************************************************
+        DateTime eventStartDateTime23 = null;
+        DateTime eventEndDateTime23 = null;
 
-        recurrenceEventInvitation.getComponents().add(event);
-        logger.info("\nCalendar: \n" + recurrenceEventInvitation.toString());
-        recurrenceEventInvitation.validate();
-        return recurrenceEventInvitation;
+        try {
+            eventStartDateTime23 = new DateTime("20181207T143300Z");
+            eventEndDateTime23 = new DateTime("20181207T183300Z");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        VEvent event23 = new VEvent(eventStartDateTime23, eventEndDateTime23, "Second rescheduling of the second event summary");
+        event23.getProperties().add(Transp.TRANSPARENT);
+
+        event23.getProperties().add(new Sequence("2"));
+        event23.getProperties().add(new Description("Second rescheduling of the second event description"));
+        event23.getProperties().add(Uid2);
+
+        try {
+            event23.getProperties().add(new Organizer("mailto:gaputinseva@gmail.com"));
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+
+        secondComplexRescheduleCalendar.getComponents().add(event13);
+        secondComplexRescheduleCalendar.getComponents().add(event23);
+
+        secondComplexRescheduleCalendar.validate();
+        logger.info("\nCalendar: \n" + secondComplexRescheduleCalendar.toString());
+
+        return secondComplexRescheduleCalendar;
     }
 
     @Override
-    public Calendar secondReschedule() {
-        Calendar recurrenceEventInvitation = new Calendar();
-        recurrenceEventInvitation.getProperties().add(Version.VERSION_2_0);
-        recurrenceEventInvitation.getProperties().add(CalScale.GREGORIAN);
-        recurrenceEventInvitation.getProperties().add(new ProdId("-//Event Central//EN"));
-        recurrenceEventInvitation.getProperties().add(Method.PUBLISH);
+    public Calendar inviteOutlook() {
+        Calendar complexRecurrenceOutlookInvitation = new Calendar();
+        complexRecurrenceOutlookInvitation.getProperties().add(Version.VERSION_2_0);
+        complexRecurrenceOutlookInvitation.getProperties().add(CalScale.GREGORIAN);
+        complexRecurrenceOutlookInvitation.getProperties().add(new ProdId("-//Event Central//EN"));
+        complexRecurrenceOutlookInvitation.getProperties().add(Method.PUBLISH);
 
-        DateTime eventStartDateTime = null;
-        DateTime eventEndDateTime = null;
+        //***************************************************************************************************
+        DateTime eventStartDateTime1 = null;
+        DateTime eventEndDateTime1 = null;
         try {
-            eventStartDateTime = new DateTime("20181201T130000Z");
-            eventEndDateTime = new DateTime("20181201T152500Z");
+            eventStartDateTime1 = new DateTime("20181201T131100Z");
+            eventEndDateTime1 = new DateTime("20181201T151100Z");
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
-        VEvent event = new VEvent(eventStartDateTime, eventEndDateTime, "Send invitation to complex(recur) event");
+        VEvent event1 = new VEvent(eventStartDateTime1, eventEndDateTime1, "Complex first event inviting to Outlook using RRule");
 
         try {
-            event.getProperties().add(new RRule("FREQ=DAILY;COUNT=1"));
+            event1.getProperties().add(new RRule("FREQ=DAILY;COUNT=1"));
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
-        DateList dates = new DateList();
-        try {
-            dates.add(new DateTime("20181201T130000Z"));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        event1.getProperties().add(Transp.OPAQUE);
+        event1.getProperties().add(new Sequence("0"));
+        event1.getProperties().add(Uid1);
 
-        event.getProperties().add(new ExDate(dates));
-        event.getProperties().add(Transp.OPAQUE);
-        event.getProperties().add(new Sequence("1"));
-
-        FixedUidGenerator fixedUidGenerator = null;
         try {
-            event.getProperties().add(new Organizer("mailto:gaputinseva@gmail.com"));
-            fixedUidGenerator = new FixedUidGenerator("UHaputsin");
-        } catch (URISyntaxException | SocketException e) {
-            logger.error("Error has cause with creating a new UID");
+            event1.getProperties().add(new Organizer("mailto:gaputinseva@gmail.com"));
+        } catch (URISyntaxException e) {
+            logger.error("Some error depends to organizer");
         }
-        UID = fixedUidGenerator.generateUid();
-        event.getProperties().add(UID);
 
         try {
             Thread.sleep(1000);
@@ -280,13 +298,13 @@ public class ComplexUpdatesImpl implements ComplexUpdates {
         DateTime eventStartDateTime2 = null;
         DateTime eventEndDateTime2 = null;
         try {
-            eventStartDateTime2 = new DateTime("20181202T132200Z");
-            eventEndDateTime2 = new DateTime("20181202T152200Z");
-        } catch (ParseException e1) {
-            e1.printStackTrace();
+            eventStartDateTime2 = new DateTime("20181205T131100Z");
+            eventEndDateTime2 = new DateTime("20181205T151100Z");
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
 
-        VEvent event2 = new VEvent(eventStartDateTime2, eventEndDateTime2, "Send reschedule to complex(recur) event");
+        VEvent event2 = new VEvent(eventStartDateTime2, eventEndDateTime2, "Complex second event inviting to Outlook using RRule");
 
         try {
             event2.getProperties().add(new RRule("FREQ=DAILY;COUNT=1"));
@@ -294,23 +312,65 @@ public class ComplexUpdatesImpl implements ComplexUpdates {
             e.printStackTrace();
         }
 
-        DateList dates1 = new DateList();
-        try {
-            dates1.add(new DateTime("20181202T132200Z"));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        event2.getProperties().add(new ExDate(dates1));
         event2.getProperties().add(Transp.OPAQUE);
-        event2.getProperties().add(new Sequence("2"));
+        event2.getProperties().add(new Sequence("0"));
+        event2.getProperties().add(Uid2);
 
         try {
             event2.getProperties().add(new Organizer("mailto:gaputinseva@gmail.com"));
-        } catch (URISyntaxException e1) {
-            e1.printStackTrace();
+        } catch (URISyntaxException e) {
+            logger.error("Error has cause with creating a new UID1");
         }
 
-        event2.getProperties().add(UID);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        complexRecurrenceOutlookInvitation.getComponents().add(event1);
+//        complexRecurrenceOutlookInvitation.getComponents().add(event2);
+
+        logger.info("\nCalendar: \n" + complexRecurrenceOutlookInvitation.toString());
+        complexRecurrenceOutlookInvitation.validate();
+        return complexRecurrenceOutlookInvitation;
+    }
+
+    @Override
+    public Calendar firstRescheduleOutlook() {
+        Calendar firstRecurrenceComplexReschedule = new Calendar();
+        firstRecurrenceComplexReschedule.getProperties().add(Version.VERSION_2_0);
+        firstRecurrenceComplexReschedule.getProperties().add(CalScale.GREGORIAN);
+        firstRecurrenceComplexReschedule.getProperties().add(new ProdId("-//Event Central//EN"));
+        firstRecurrenceComplexReschedule.getProperties().add(Method.PUBLISH);
+
+        //***************************************************************************************************
+        DateTime eventStartDateTime11 = null;
+        DateTime eventEndDateTime11 = null;
+        try {
+            eventStartDateTime11 = new DateTime("20181201T131100Z");
+            eventEndDateTime11 = new DateTime("20181201T151100Z");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        VEvent event11 = new VEvent(eventStartDateTime11, eventEndDateTime11, "Complex first event inviting to Outlook using RRule");
+
+        try {
+            event11.getProperties().add(new RRule("FREQ=DAILY;COUNT=0"));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        event11.getProperties().add(Transp.OPAQUE);
+        event11.getProperties().add(new Sequence("1"));
+        event11.getProperties().add(Uid1);
+
+        try {
+            event11.getProperties().add(new Organizer("mailto:gaputinseva@gmail.com"));
+        } catch (URISyntaxException e) {
+            logger.error("Some error depends to organizer");
+        }
 
         try {
             Thread.sleep(1000);
@@ -318,53 +378,236 @@ public class ComplexUpdatesImpl implements ComplexUpdates {
             e.printStackTrace();
         }
         //***************************************************************************************************
-        DateTime eventStartDateTime3 = null;
-        DateTime eventEndDateTime3 = null;
+        DateTime eventStartDateTime12 = null;
+        DateTime eventEndDateTime12 = null;
         try {
-            eventStartDateTime3 = new DateTime("20181203T133300Z");
-            eventEndDateTime3 = new DateTime("20181203T153300Z");
+            eventStartDateTime12 = new DateTime("20181202T122200Z");
+            eventEndDateTime12 = new DateTime("20181202T162200Z");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        VEvent event12 = new VEvent(eventStartDateTime12, eventEndDateTime12, "Rescheduled first event");
+
+        try {
+            event12.getProperties().add(new RRule("FREQ=DAILY;COUNT=1"));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        event12.getProperties().add(new RecurrenceId(eventStartDateTime11));
+        event12.getProperties().add(Transp.OPAQUE);
+        event12.getProperties().add(new Sequence("2"));
+        event12.getProperties().add(Uid1);
+
+        try {
+            event12.getProperties().add(new Organizer("mailto:gaputinseva@gmail.com"));
+        } catch (URISyntaxException e) {
+            logger.error("Some error depends to organizer");
+        }
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        //***************************************************************************************************
+        //===================================================================================================
+        //***************************************************************************************************
+//        DateTime eventStartDateTime21 = null;
+//        DateTime eventEndDateTime21 = null;
+//        try {
+//            eventStartDateTime21 = new DateTime("20181205T131100Z");
+//            eventEndDateTime21 = new DateTime("20181205T151100Z");
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+//
+//        VEvent event21 = new VEvent(eventStartDateTime21, eventEndDateTime21, "Complex second event inviting to Outlook using RRule");
+//
+//        try {
+//            event21.getProperties().add(new RRule("FREQ=DAILY;COUNT=1"));
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+//
+//        DateList dates2 = new DateList();
+//        try {
+//            dates2.add(new DateTime("20181205T131100Z"));
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+//        event12.getProperties().add(new ExDate(dates2));
+//        event21.getProperties().add(Transp.OPAQUE);
+//        event21.getProperties().add(new Sequence("1"));
+//        event21.getProperties().add(Uid2);
+//
+//        try {
+//            event21.getProperties().add(new Organizer("mailto:gaputinseva@gmail.com"));
+//        } catch (URISyntaxException e) {
+//            logger.error("Error has cause with creating a new UID1");
+//        }
+//
+//        try {
+//            Thread.sleep(1000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//        //***************************************************************************************************
+//        DateTime eventStartDateTime22 = null;
+//        DateTime eventEndDateTime22 = null;
+//        try {
+//            eventStartDateTime22 = new DateTime("20181206T152200Z");
+//            eventEndDateTime22 = new DateTime("20181206T172200Z");
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+//
+//        VEvent event22 = new VEvent(eventStartDateTime22, eventEndDateTime22, "Rescheduled second event");
+//
+//        try {
+//            event22.getProperties().add(new RRule("FREQ=DAILY;COUNT=1"));
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+//
+//        event22.getProperties().add(Transp.OPAQUE);
+//        event22.getProperties().add(new Sequence("2"));
+//        event22.getProperties().add(Uid2);
+//
+//        try {
+//            event22.getProperties().add(new Organizer("mailto:gaputinseva@gmail.com"));
+//        } catch (URISyntaxException e) {
+//            logger.error("Error has cause with creating a new UID1");
+//        }
+
+        firstRecurrenceComplexReschedule.getComponents().add(event11);
+        firstRecurrenceComplexReschedule.getComponents().add(event12);
+//        firstRecurrenceComplexReschedule.getComponents().add(event21);
+//        firstRecurrenceComplexReschedule.getComponents().add(event22);
+
+        logger.info("\nCalendar: \n" + firstRecurrenceComplexReschedule.toString());
+        firstRecurrenceComplexReschedule.validate();
+        return firstRecurrenceComplexReschedule;
+    }
+
+    @Override
+    public Calendar secondRescheduleOutlook() {
+        Calendar secondRescheduleInvitation = new Calendar();
+        secondRescheduleInvitation.getProperties().add(Version.VERSION_2_0);
+        secondRescheduleInvitation.getProperties().add(CalScale.GREGORIAN);
+        secondRescheduleInvitation.getProperties().add(new ProdId("-//Event Central//EN"));
+        secondRescheduleInvitation.getProperties().add(Method.PUBLISH);
+
+        //***************************************************************************************************
+        DateTime eventStartDateTime11 = null;
+        DateTime eventEndDateTime11 = null;
+        try {
+            eventStartDateTime11 = new DateTime("20181201T131100Z");
+            eventEndDateTime11 = new DateTime("20181201T151100Z");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        VEvent event11 = new VEvent(eventStartDateTime11, eventEndDateTime11, "Send complex invitations to Outlook client");
+
+        try {
+            event11.getProperties().add(new RRule("FREQ=DAILY;COUNT=1"));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        DateList dates = new DateList();
+        dates.add(eventStartDateTime11);
+        event11.getProperties().add(new ExDate(dates));
+
+        event11.getProperties().add(Transp.OPAQUE);
+        event11.getProperties().add(new Sequence("2"));
+        event11.getProperties().add(Uid1);
+
+        try {
+            event11.getProperties().add(new Organizer("mailto:gaputinseva@gmail.com"));
+        } catch (URISyntaxException e) {
+            logger.error("Error has cause with creating a new UID1");
+        }
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        //***************************************************************************************************
+        DateTime eventStartDateTime12 = null;
+        DateTime eventEndDateTime12 = null;
+        try {
+            eventStartDateTime12 = new DateTime("20181202T142200Z");
+            eventEndDateTime12 = new DateTime("20181202T162200Z");
         } catch (ParseException e1) {
             e1.printStackTrace();
         }
 
-        VEvent event3 = new VEvent(eventStartDateTime3, eventEndDateTime3, "Send second reschedule to complex(recur) event");
-
-        event3.getProperties().add(new RecurrenceId(eventStartDateTime2));
-        event3.getProperties().add(Transp.OPAQUE);
-        event3.getProperties().add(new Sequence("3"));
+        VEvent event12 = new VEvent(eventStartDateTime12, eventEndDateTime12, "Send first reschedule to complex event");
 
         try {
-            event3.getProperties().add(new Organizer("mailto:gaputinseva@gmail.com"));
-        } catch (URISyntaxException e1) {
+            event12.getProperties().add(new RRule("FREQ=DAILY;COUNT=1"));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        DateList dates1 = new DateList();
+        dates1.add(eventStartDateTime12);
+        event12.getProperties().add(new ExDate(dates1));
+
+        event12.getProperties().add(Transp.OPAQUE);
+        event12.getProperties().add(new Sequence("3"));
+        event12.getProperties().add(Uid1);
+
+        try {
+            event12.getProperties().add(new Organizer("mailto:gaputinseva@gmail.com"));
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        //***************************************************************************************************
+        DateTime eventStartDateTime13 = null;
+        DateTime eventEndDateTime13 = null;
+        try {
+            eventStartDateTime13 = new DateTime("20181203T133300Z");
+            eventEndDateTime13 = new DateTime("20181203T153300Z");
+        } catch (ParseException e1) {
             e1.printStackTrace();
         }
 
-        event3.getProperties().add(UID);
-        recurrenceEventInvitation.getComponents().add(event);
-        recurrenceEventInvitation.getComponents().add(event2);
-        recurrenceEventInvitation.getComponents().add(event3);
+        VEvent event13 = new VEvent(eventStartDateTime13, eventEndDateTime13, "Send second reschedule to complex(recur) event");
 
-        recurrenceEventInvitation.validate();
-        logger.info("\nCalendar: \n" + recurrenceEventInvitation.toString());
-        return recurrenceEventInvitation;
+//        event13.getProperties().add(new RecurrenceId(eventStartDateTime12));
+        try {
+            event13.getProperties().add(new RRule("FREQ=DAILY;COUNT=1"));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        event13.getProperties().add(Transp.OPAQUE);
+        event13.getProperties().add(new Sequence("4"));
+        event13.getProperties().add(Uid1);
+
+        try {
+            event13.getProperties().add(new Organizer("mailto:gaputinseva@gmail.com"));
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+
+        secondRescheduleInvitation.getComponents().add(event11);
+        secondRescheduleInvitation.getComponents().add(event12);
+        secondRescheduleInvitation.getComponents().add(event13);
+
+        secondRescheduleInvitation.validate();
+        logger.info("\nCalendar: \n" + secondRescheduleInvitation.toString());
+        return secondRescheduleInvitation;
     }
-
-    //    private PropertyList<Property> getEventProperties() {
-//        PropertyList<Property> propertyList = new PropertyList<>();
-//
-//        XProperty lotusBroadcast = new XProperty("X-LOTUS-BROADCAST", "TRUE");
-//        XProperty lotusPreventCounter = new XProperty("X-LOTUS-PREVENTCOUNTER", "FALSE");
-//        XProperty microsoftDisallowCounter = new XProperty("X-MICROSOFT-DISALLOW-COUNTER", "TRUE");
-//        XProperty msAttachment = new XProperty("X-MS-ATTACHMENT", "YES");
-//        XProperty lotusUtf8 = new XProperty("X-LOTUS-CHARSET", "UTF-8");
-//        XProperty lotusPreventDelegation = new XProperty("X-LOTUS-PREVENTDELEGATION", "TRUE");
-//        XProperty lotusVersion = new XProperty("X-LOTUS-NOTESVERSION", "2");
-//        XProperty lotusAppType = new XProperty("X-LOTUS-APPTTYPE", "3");
-//
-//        propertyList.addAll(Arrays.asList(lotusPreventDelegation,
-//                microsoftDisallowCounter, lotusVersion, lotusAppType, lotusBroadcast,
-//                lotusPreventCounter, lotusUtf8, outlookForceOpen, msAttachment));
-//        return propertyList;
-//    }
 }
 

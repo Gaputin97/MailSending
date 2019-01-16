@@ -11,19 +11,15 @@ public class EmailRequest {
     @Email
     private String[] recipientEmail;
 
-    @ApiModelProperty(notes = "Data which sending to recipient")
-    private String messageBody;
-
     @ApiModelProperty(notes = "Subject about sending data")
     private String messageSubject;
 
     public EmailRequest() {
     }
 
-    public EmailRequest(String[] recipientEmail, String messageSubject, String messageBody) {
+    public EmailRequest(String[] recipientEmail, String messageSubject) {
         this.recipientEmail = recipientEmail;
         this.messageSubject = messageSubject;
-        this.messageBody = messageBody;
     }
 
     public String[] getRecipientEmail() {
@@ -32,14 +28,6 @@ public class EmailRequest {
 
     public void setRecipientEmail(String[] recipientEmail) {
         this.recipientEmail = recipientEmail;
-    }
-
-    public String getMessageBody() {
-        return messageBody;
-    }
-
-    public void setMessageBody(String messageBody) {
-        this.messageBody = messageBody;
     }
 
     public String getMessageSubject() {
@@ -55,7 +43,6 @@ public class EmailRequest {
         return "EmailRequest{" +
                 "recipientEmail='" + recipientEmail + '\'' +
                 ", messageSubject='" + messageSubject + '\'' +
-                ", messageBody=" + messageBody +
                 '}';
     }
 }

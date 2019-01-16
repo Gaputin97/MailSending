@@ -57,7 +57,7 @@ public class ComplexEventsImpl implements ComplexEvents {
         event1.getProperties().add(new Location("Conference room A103"));
         event1.getProperties().add(Transp.OPAQUE);
         PropertyList<Property> eventProperties1 = getEventProperties();
-        event1.getProperties().addAll(eventProperties1);
+//        event1.getProperties().addAll(eventProperties1);
 
         XProperty lotusNotesType1 = new XProperty("X-LOTUS-NOTICETYPE", "I");
         event1.getProperties().add(lotusNotesType1);
@@ -87,7 +87,7 @@ public class ComplexEventsImpl implements ComplexEvents {
             e.printStackTrace();
         }
         UID2 = fixedUidGenerator2.generateUid();
-        event2.getProperties().add(UID2);
+//        event2.getProperties().add(UID2);
 
         event2.getProperties().add(new Description("Create description for the second event"));
         event2.getProperties().add(new Sequence("0"));
@@ -136,11 +136,6 @@ public class ComplexEventsImpl implements ComplexEvents {
         event1.getProperties().add(new Location("Conference room A104"));
         event1.getProperties().add(Transp.OPAQUE);
 //        event1.getProperties().addAll(getEventProperties());
-
-//        XProperty lotusNotesType1 = new XProperty("X-LOTUS-NOTICETYPE", "U");
-//        event1.getProperties().add(lotusNotesType1);
-//        XProperty lotusUpdateSeq = new XProperty("X-LOTUS-UPDATE-SEQ", "1");
-//        event1.getProperties().add(lotusUpdateSeq);
 
         try {
             event1.getProperties().add(new Organizer("mailto:gaputinseva@gmail.com"));
